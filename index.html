@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arpan Chatterjee - Script Writer, Researcher, Content Strategist</title>
+<meta name="description" content="Bengali audio fiction, finance video and brand scripts, plus the SEO behind a stock research product that grew 6x in three months. Work for Mirchi Bangla, Goppo Mir-er Thek, SVF, Swiggy, Sunrise, inDrive and Insights.market.">
+<meta name="author" content="Arpan Chatterjee">
+<meta name="theme-color" content="#F5F3F8">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://arpanchatterjee.github.io/">
+
+<script>
+/* Sets the theme before the page paints, so there is no white flash in dark mode. */
+(function(){
+  var t = "light";
+  try{
+    var saved = localStorage.getItem("theme");
+    t = saved ? saved : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  }catch(e){}
+  document.documentElement.setAttribute("data-theme", t);
+})();
+
+/* Image fallbacks live up here because the inline onerror handlers on the
+   portrait pictures can fire while the page is still parsing, long before
+   the main script at the end of the body runs. */
+window.photoFail = function(img){
+  var fig = img.parentNode;
+  img.remove();
+  if(!fig.querySelector("img") && !fig.querySelector(".mono")){
+    fig.insertAdjacentHTML("beforeend", '<span class="mono">A</span>');
+  }else{
+    var only = fig.querySelector("img");
+    if(only){ only.style.animation = "none"; only.style.opacity = "1"; }
+  }
+};
+window.logoFail = function(img){
+  var tile = img.parentNode, name = img.alt;
+  img.remove();
+  tile.insertAdjacentHTML("beforeend", '<span class="logo-word">' + name + '</span>');
+};
+window.thumbErr = function(img){
+  var n = img.dataset.next;
+  if(n){ img.dataset.next = ""; img.src = n; } else { img.remove(); }
+};
+</script>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arpan Chatterjee - Script Writer, Researcher, Content Strategist">
+<meta property="og:description" content="Sunday Suspense adaptations, Sherlock in Bengali, finance video people finish, and the SEO behind 6x organic growth.">
+<meta property="og:url" content="https://arpanchatterjee.github.io/">
+<meta property="og:image" content="photos/arpan-front.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23221B33'/><text x='50' y='69' font-size='54' font-family='Georgia,serif' fill='%23B69BFF' text-anchor='middle'>A</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Schibsted+Grotesk:wght@400..700&family=Noto+Sans+Bengali:wght@400..600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#F5F3F8;
+  --paper-2:#EDE9F5;
+  --white:#FFFFFF;
+  --night:#1E1730;
+
+  --ink:#221B33;
+  --ink-2:#5C5470;
+  --ink-3:#938BA8;
+  --line:rgba(34,27,51,.10);
+  --line-2:rgba(34,27,51,.20);
+
+  --violet:#5B36E8;
+  --violet-soft:#E9E3FE;
+  --violet-ink:#3D22A8;
+  --on-violet:#FFFFFF;
+  --mint:#0E7C61;
+  --mint-soft:#DCF2EB;
+  --mango:#B45309;
+  --mango-soft:#FBEEDA;
+  --rose:#C2185B;
+  --rose-soft:#FBE3EC;
+
+  /* surfaces and effects that change between the two themes */
+  --nav-bg:rgba(245,243,248,.82);
+  --tile-bg:#FFFFFF;
+  --frame-bg:#FFFFFF;
+  --frame-bg-2:#F6F4F9;
+  --glow:rgba(124,92,255,.20);
+  --portrait-2:#DCD6F2;
+  --violet-edge:rgba(91,54,232,.16);
+  --ripple-1:rgba(91,54,232,.24);
+  --ripple-2:rgba(91,54,232,.16);
+  --ripple-3:rgba(91,54,232,.10);
+  --mono-ink:rgba(91,54,232,.42);
+  --shadow-1:0 6px 22px rgba(34,27,51,.07);
+  --shadow-2:0 16px 36px rgba(34,27,51,.14);
+  --play-bg:rgba(245,243,248,.92);
+  --play-ink:#221B33;
+
+  --display:"Newsreader",Georgia,serif;
+  --ui:"Schibsted Grotesk","Noto Sans Bengali","Helvetica Neue",Arial,sans-serif;
+  --bn:"Noto Sans Bengali","Schibsted Grotesk",sans-serif;
+  --wrap:1140px; --gut:clamp(20px,5vw,60px);
+}
+
+/* ---------- dark theme ---------- */
+html[data-theme="dark"]{
+  --paper:#13101E;
+  --paper-2:#191428;
+  --white:#1C1730;
+  --night:#231C3B;
+
+  --ink:#EFEBF8;
+  --ink-2:#B5ADCB;
+  --ink-3:#877EA1;
+  --line:rgba(237,233,245,.11);
+  --line-2:rgba(237,233,245,.22);
+
+  --violet:#AD90FF;
+  --violet-soft:rgba(173,144,255,.16);
+  --violet-ink:#DCCCFF;
+  --on-violet:#17122A;
+  --mint:#4FD3AD;
+  --mint-soft:rgba(79,211,173,.15);
+  --mango:#F0B45F;
+  --mango-soft:rgba(240,180,95,.15);
+  --rose:#FF92B3;
+  --rose-soft:rgba(255,146,179,.15);
+
+  --nav-bg:rgba(19,16,30,.84);
+  --tile-bg:#E8E5F2;
+  --frame-bg:#1C1730;
+  --frame-bg-2:#1C1730;
+  --glow:rgba(150,118,255,.20);
+  --portrait-2:#2A2245;
+  --violet-edge:rgba(173,144,255,.22);
+  --ripple-1:rgba(173,144,255,.26);
+  --ripple-2:rgba(173,144,255,.17);
+  --ripple-3:rgba(173,144,255,.10);
+  --mono-ink:rgba(173,144,255,.45);
+  --shadow-1:0 6px 22px rgba(0,0,0,.42);
+  --shadow-2:0 16px 40px rgba(0,0,0,.55);
+  --play-bg:rgba(240,237,248,.94);
+  --play-ink:#221B33;
+}
+html[data-theme="dark"] .logo-tile{border-color:rgba(237,233,245,.14)}
+html[data-theme="dark"] .logo-tile img{filter:saturate(.96)}
+html[data-theme="dark"] .chart-block{border:1px solid rgba(237,233,245,.10)}
+html[data-theme="dark"] .wall img,
+html[data-theme="dark"] .about-shots img,
+html[data-theme="dark"] .portrait img{filter:brightness(.94) contrast(1.02)}
+html[data-theme="dark"] .embed .frame{background:var(--frame-bg)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--ui);font-weight:400;
+  font-size:clamp(15.5px,1vw,17px);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  transition:background .32s ease,color .32s ease}
+.sec,.band,.why,.contact,footer,.card,.filter,.chip,.btn,.embed,.logo-tile,.nav,.empty-slot,.wall figure,.tl-row{
+  transition:background-color .32s ease,color .32s ease,border-color .32s ease}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
+a{color:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--violet);color:var(--on-violet)}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:4px}
+.bn{font-family:var(--bn)}
+
+.mark{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;letter-spacing:.01em;color:var(--violet)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:80;background:var(--nav-bg);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--wrap);margin:0 auto;padding:12px var(--gut);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-right{display:flex;align-items:center;gap:13px}
+.tt{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);background:var(--white);
+  color:var(--ink-2);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:border-color .18s,color .18s,background .18s,transform .18s}
+.tt:hover{color:var(--violet);border-color:var(--violet);transform:rotate(-12deg)}
+.tt svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tt .i-sun{display:none}
+html[data-theme="dark"] .tt .i-sun{display:block}
+html[data-theme="dark"] .tt .i-moon{display:none}
+.nav-name{font-family:var(--display);font-size:18px;font-weight:500;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.nav-name b{color:var(--violet);font-weight:inherit}
+.nav-links{display:flex;gap:19px;list-style:none;align-items:center}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--ink-2);text-decoration:none;transition:color .18s;white-space:nowrap}
+.nav-links a:hover{color:var(--violet)}
+.nav-cta{background:var(--ink);color:var(--paper)!important;border-radius:100px;padding:9px 17px;font-weight:600;text-decoration:none;transition:background .18s}
+.nav-cta:hover{background:var(--violet)}
+.burger{display:none;background:none;border:1px solid var(--line-2);border-radius:9px;color:var(--ink);width:42px;height:38px;cursor:pointer;align-items:center;justify-content:center}
+.burger span,.burger span::before,.burger span::after{content:"";display:block;width:17px;height:1.6px;border-radius:2px;background:var(--ink);transition:transform .25s,opacity .2s}
+.burger span::before{transform:translateY(-5.5px)}
+.burger span::after{transform:translateY(3.9px)}
+.nav.open .burger span{background:transparent}
+.nav.open .burger span::before{transform:rotate(45deg)}
+.nav.open .burger span::after{transform:rotate(-45deg) translateY(-1.6px)}
+@media(max-width:980px){
+  .burger{display:flex}
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--white);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .nav.open .nav-links{max-height:520px}
+  .nav-links li{border-top:1px solid var(--line)}
+  .nav-links a{display:block;padding:15px var(--gut);font-size:15px}
+  .nav-links .nav-cta{border-radius:0;background:none;color:var(--violet)!important;padding:15px var(--gut)}
+  .nav-links .nav-cta:hover{background:none}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(44px,6.5vw,86px) 0 clamp(36px,5vw,62px);overflow:hidden}
+.hero::before{content:"";position:absolute;z-index:0;top:-180px;right:-140px;width:620px;height:620px;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,var(--glow),transparent 62%);pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(26px,5vw,60px);align-items:center}
+.hero-name{font-size:14px;font-weight:600;color:var(--ink-3)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.3rem,5.6vw,4.15rem);line-height:1.04;
+  letter-spacing:-.022em;margin:14px 0 0;max-width:15ch;font-variation-settings:"opsz" 60}
+.hero h1 em{font-style:italic;font-weight:300}
+.hero-sub{margin-top:22px;max-width:56ch;font-size:1.05rem;color:var(--ink-2)}
+.hero-act{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.hero-meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:12.5px;font-weight:500;color:var(--ink-2);background:var(--white);border:1px solid var(--line);border-radius:100px;padding:6px 14px}
+
+/* portrait, arch framed, two pictures cross fading */
+.portrait{position:relative;justify-self:center;width:min(100%,318px)}
+.portrait .ripple{position:absolute;inset:-9% -9% -4%;z-index:0;pointer-events:none}
+.portrait .ripple i{position:absolute;inset:0;border-radius:50% 50% 46% 46%;border:1px solid var(--ripple-1)}
+.portrait .ripple i:nth-child(2){inset:7%;border-color:var(--ripple-2)}
+.portrait .ripple i:nth-child(3){inset:14%;border-color:var(--ripple-3)}
+.portrait figure{position:relative;z-index:1;aspect-ratio:4/5;border-radius:190px 190px 22px 22px;overflow:hidden;
+  background:linear-gradient(165deg,var(--violet-soft),var(--portrait-2));border:1px solid var(--violet-edge)}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;
+  opacity:0;animation:swap 15s infinite}
+.portrait img:nth-of-type(2){animation-delay:7.5s}
+@keyframes swap{0%{opacity:0}3%{opacity:1}47%{opacity:1}50%{opacity:0}100%{opacity:0}}
+.portrait .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:4.4rem;color:var(--mono-ink)}
+.portrait .cap{position:absolute;z-index:2;left:50%;bottom:-15px;transform:translateX(-50%);white-space:nowrap;
+  background:var(--ink);color:var(--paper);font-size:11.5px;font-weight:600;padding:7px 15px;border-radius:100px}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .portrait{order:-1;justify-self:start;width:172px}
+  .portrait figure{aspect-ratio:1;border-radius:50%}
+  .portrait .ripple i{border-radius:50%}
+  .portrait .cap{left:auto;right:-8px;bottom:4px;transform:none}
+  .hero h1{max-width:none}
+}
+
+/* ---------- buttons ---------- */
+.btn{font-size:14px;font-weight:600;text-decoration:none;padding:13px 24px;border-radius:100px;
+  border:1px solid var(--line-2);color:var(--ink);display:inline-flex;align-items:center;gap:9px;
+  cursor:pointer;background:var(--white);font-family:var(--ui);transition:border-color .18s,background .18s,color .18s}
+.btn:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.btn-solid{background:var(--violet);border-color:var(--violet);color:var(--on-violet)}
+.btn-solid:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn svg{width:15px;height:15px;fill:currentColor;flex:none}
+
+/* ---------- logo band ---------- */
+.band{background:var(--paper-2);padding:clamp(30px,4vw,46px) 0;overflow:hidden;border-block:1px solid var(--line)}
+.band-head{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut);display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.band-head h2{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,2.2vw,1.5rem);letter-spacing:-.015em}
+.band-head p{color:var(--ink-3);font-size:.92rem}
+.marquee{margin-top:22px;position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marquee-track{display:flex;gap:14px;width:max-content;animation:slide 35s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.logo-tile{background:var(--tile-bg);border:1px solid var(--line);border-radius:15px;width:208px;height:100px;
+  display:flex;align-items:center;justify-content:center;padding:12px 18px;flex:none}
+@media(max-width:560px){.logo-tile{width:178px;height:88px;padding:11px 15px}}
+.logo-tile img{width:100%;height:auto;object-fit:contain}
+.logo-word{font-family:var(--display);font-weight:500;font-size:1.02rem;line-height:1.2;text-align:center;color:var(--ink-2)}
+@media(prefers-reduced-motion:reduce){
+  .marquee{mask-image:none;-webkit-mask-image:none}
+  .marquee-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}
+}
+
+/* ---------- sections ---------- */
+.sec{padding:clamp(58px,7.5vw,100px) 0}
+.sec+.sec{border-top:1px solid var(--line)}
+.sec-head{margin-bottom:clamp(26px,4vw,42px);max-width:62ch}
+.sec-head h2{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,4.2vw,2.95rem);line-height:1.1;letter-spacing:-.022em;margin-top:14px}
+.sec-head h2 em{font-style:italic;font-weight:300}
+.sec-head p{margin-top:14px;color:var(--ink-2);max-width:60ch}
+.sub-head{margin:40px 0 18px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sub-head h3{font-family:var(--display);font-weight:500;font-size:1.35rem;letter-spacing:-.015em}
+.sub-head span{font-size:13px;color:var(--ink-3)}
+
+/* ---------- why ---------- */
+.why{background:var(--white);border-block:1px solid var(--line)}
+.why-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,62px);align-items:start}
+@media(max-width:860px){.why-grid{grid-template-columns:1fr;gap:26px}}
+.why h2{font-family:var(--display);font-weight:400;font-size:clamp(1.95rem,4.4vw,3.05rem);line-height:1.09;letter-spacing:-.022em;margin-top:14px;max-width:16ch}
+.why h2 em{font-style:italic;font-weight:300}
+.why p{color:var(--ink-2);margin-bottom:16px;max-width:60ch}
+.why p.lead{font-size:1.1rem;color:var(--ink)}
+.pullquote{margin:26px 0;padding-left:22px;border-left:3px solid var(--violet);
+  font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(1.25rem,2.5vw,1.6rem);
+  line-height:1.34;color:var(--ink);letter-spacing:-.012em}
+.pullquote span{display:block;margin-top:10px;font-family:var(--ui);font-style:normal;font-size:13px;font-weight:600;color:var(--violet)}
+
+/* ---------- chart ---------- */
+.chart-block{background:var(--night);border-radius:22px;padding:clamp(22px,3.6vw,38px);color:#EDE9F5}
+.chart-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px}
+.chart-title{font-family:var(--display);font-weight:400;font-size:clamp(1.2rem,2.1vw,1.6rem);letter-spacing:-.015em}
+.chart-note{font-size:12.5px;color:#9C93B6}
+.chart-svg{width:100%;height:auto;display:block;margin-top:16px;overflow:visible}
+.grid-line{stroke:rgba(237,233,245,.12);stroke-width:1}
+.axis-txt{font-family:"Schibsted Grotesk",sans-serif;font-size:11px;fill:#9C93B6}
+.curve{fill:none;stroke:#FFC14D;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.curve-fill{fill:url(#fadeAmber);opacity:.28}
+.dot{fill:var(--night);stroke:#FFC14D;stroke-width:2}
+.dot-last{fill:#FFC14D}
+.marker-line{stroke:#B69BFF;stroke-width:1;stroke-dasharray:3 4;opacity:.7}
+.marker-txt{font-family:"Schibsted Grotesk",sans-serif;font-size:11px;font-weight:600;fill:#B69BFF}
+.val-txt{font-family:"Schibsted Grotesk",sans-serif;font-size:12.5px;font-weight:700;fill:#FFF}
+.chart-legend{margin-top:22px;padding-top:20px;border-top:1px solid rgba(237,233,245,.14);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:18px}
+.legend-k{font-size:12px;color:#9C93B6}
+.legend-v{font-family:var(--display);font-weight:400;font-size:1.65rem;margin-top:2px;line-height:1.1}
+.legend-v span{font-size:.78rem;color:#9C93B6;font-family:var(--ui);font-weight:400}
+
+/* ---------- filters ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.filter{font-family:var(--ui);font-size:13px;font-weight:500;background:var(--white);border:1px solid var(--line);
+  color:var(--ink-2);padding:9px 17px;border-radius:100px;cursor:pointer;transition:border-color .18s,color .18s,background .18s}
+.filter:hover{color:var(--ink);border-color:var(--line-2)}
+.filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+/* ---------- work cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(308px,1fr));gap:14px}
+.card{position:relative;border:1px solid var(--line);border-left:3px solid var(--sp,var(--violet));border-radius:6px 16px 16px 6px;
+  background:var(--white);padding:22px 22px 20px;text-align:left;color:inherit;font:inherit;cursor:pointer;
+  display:flex;flex-direction:column;transition:transform .18s}
+.card:hover{transform:translateY(-2px)}
+.card.is-hidden{display:none}
+.card[data-cat="audio"]{--sp:var(--violet);--sp-soft:var(--violet-soft)}
+.card[data-cat="growth"]{--sp:var(--mint);--sp-soft:var(--mint-soft)}
+.card[data-cat="scripts"]{--sp:var(--mango);--sp-soft:var(--mango-soft)}
+.card[data-cat="social"]{--sp:var(--rose);--sp-soft:var(--rose-soft)}
+.card-tag{align-self:flex-start;font-size:12px;font-weight:600;color:var(--sp);background:var(--sp-soft);padding:4px 11px;border-radius:100px}
+.card h3{font-family:var(--display);font-weight:500;font-size:1.42rem;margin:12px 0 3px;line-height:1.18;letter-spacing:-.015em}
+.card-role{font-size:12.5px;color:var(--ink-3)}
+.card-line{margin-top:12px;color:var(--ink-2);font-size:.95rem}
+.card-more{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1),margin-top .38s}
+.card[aria-expanded="true"] .card-more{max-height:720px;margin-top:14px}
+.card-more ul{list-style:none;display:grid;gap:9px;padding-top:15px;border-top:1px solid var(--line)}
+.card-more li{position:relative;padding-left:17px;font-size:.92rem;color:var(--ink-2);line-height:1.55}
+.card-more li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--sp);opacity:.45}
+.card-cue{margin-top:auto;padding-top:18px;font-size:12.5px;font-weight:600;color:var(--ink-3);display:flex;align-items:center;gap:7px}
+.card-cue::after{content:"+";font-size:16px;line-height:1;transition:transform .3s}
+.card[aria-expanded="true"] .card-cue{color:var(--sp)}
+.card[aria-expanded="true"] .card-cue::after{transform:rotate(45deg)}
+
+/* ---------- media tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(282px,1fr));gap:26px 20px;align-items:start}
+.tile{text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px}
+.thumb{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:linear-gradient(150deg,#2E2447,#1B1528)}
+.thumb img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.3,1)}
+.tile:hover .thumb img,.tile:focus-visible .thumb img{transform:scale(1.045)}
+.thumb::after{content:"";position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(20,14,34,.16) 0%,rgba(20,14,34,0) 45%,rgba(20,14,34,.42) 100%)}
+.cover{position:absolute;inset:0;z-index:0;display:flex;align-items:flex-end;padding:18px}
+.cover em{font-style:normal;font-family:var(--display);font-size:1.22rem;color:rgba(237,233,245,.82);line-height:1.2;letter-spacing:-.01em}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.92);z-index:3;
+  width:52px;height:52px;border-radius:50%;background:var(--play-bg);
+  display:flex;align-items:center;justify-content:center;opacity:.92;transition:background .22s,transform .22s,opacity .22s}
+.tile:hover .play,.tile:focus-visible .play{background:var(--violet);transform:translate(-50%,-50%) scale(1);opacity:1}
+.play svg{width:18px;height:18px;fill:var(--play-ink);margin-left:3px;transition:fill .22s}
+.tile:hover .play svg,.tile:focus-visible .play svg{fill:var(--on-violet)}
+.tile-body{display:flex;flex-direction:column;gap:5px;flex:1}
+.tile-title{font-family:var(--display);font-weight:500;font-size:1.16rem;line-height:1.26;letter-spacing:-.012em}
+.tile-title.bn{font-family:var(--bn);font-weight:600;font-size:1.1rem;line-height:1.45;letter-spacing:0}
+.tile-by{font-size:.88rem;color:var(--ink-3)}
+.tile-foot{margin-top:auto;padding-top:9px;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.tile-foot .dotmark{width:6px;height:6px;border-radius:50%;background:var(--violet);flex:none}
+.tile:hover .tile-foot{color:var(--violet)}
+
+.embed{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);display:flex;flex-direction:column}
+.embed .frame{width:100%;background:var(--frame-bg)}
+.embed .frame iframe{width:100%;border:0;display:block}
+.embed.sp .frame{background:var(--frame-bg-2);height:352px}
+.embed.sp .frame iframe{height:352px}
+/* The Instagram embed is taller than the part worth showing. The frame is a
+   window over it: the iframe still draws its own "View more on Instagram"
+   strip and row of icons, the window simply stops just above them, so that
+   white band never takes up room in the card. */
+.embed.ig .frame{height:460px;overflow:hidden;position:relative}
+.embed.ig .frame iframe{height:540px;position:absolute;top:0;left:0}
+/* A reel kept as a still picture, sized to match the cropped embeds beside it. */
+.embed.ig.still{text-decoration:none;color:inherit}
+.embed.ig.still .frame{display:block;height:460px;position:relative;background:#000}
+.embed.ig.still .frame img{width:100%;height:100%;object-fit:contain}
+.embed.ig.still:hover .play{background:var(--violet);transform:translate(-50%,-50%) scale(1);opacity:1}
+.embed.ig.still:hover .play svg{fill:var(--on-violet)}
+.embed .tile-body{padding:13px 16px 15px}
+.embed .tile-title a{color:inherit;text-decoration:none;transition:color .18s}
+.embed .tile-title a:hover{color:var(--violet)}
+.embed-link{font-size:12.5px;font-weight:600;color:var(--violet);text-decoration:none}
+.embed-link:hover{text-decoration:underline}
+.reels{display:grid;grid-template-columns:repeat(auto-fill,minmax(324px,1fr));gap:18px;align-items:start}
+.reel .thumb{aspect-ratio:4/5}
+.tiles+.reels,.reels+.tiles{margin-top:24px}
+.empty-slot{border:1px dashed var(--line-2);border-radius:16px;padding:22px;color:var(--ink-3);font-size:.9rem;background:var(--white)}
+
+/* ---------- photo wall ---------- */
+.wall{columns:3 272px;column-gap:18px}
+.wall figure{break-inside:avoid;margin:0 0 20px;background:var(--white);padding:10px 10px 0;
+  border:1px solid var(--line);border-radius:7px;box-shadow:var(--shadow-1);
+  transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.wall figure:nth-child(odd){transform:rotate(-1.1deg)}
+.wall figure:nth-child(3n){transform:rotate(1.3deg)}
+.wall figure:hover{transform:rotate(0) translateY(-5px);box-shadow:var(--shadow-2)}
+.wall img{width:100%;border-radius:3px}
+.wall figcaption{padding:13px 4px 15px;font-family:var(--display);font-style:italic;font-size:.92rem;line-height:1.46;color:var(--ink-2)}
+.wall figcaption b{font-style:normal;font-weight:600;color:var(--ink)}
+@media(max-width:560px){.wall figure,.wall figure:nth-child(odd),.wall figure:nth-child(3n){transform:none}}
+
+/* ---------- timeline ---------- */
+.tl{border-top:1px solid var(--line)}
+.tl-row{display:grid;grid-template-columns:172px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}
+.tl-when{font-size:12.5px;font-weight:600;color:var(--violet);padding-top:6px}
+.tl-what h3{font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1.2;letter-spacing:-.015em}
+.tl-org{font-size:12.5px;color:var(--ink-3);margin-top:4px}
+.tl-what p{margin-top:9px;color:var(--ink-2);font-size:.94rem;max-width:62ch}
+@media(max-width:640px){.tl-row{grid-template-columns:1fr;gap:8px}.tl-when{padding-top:0}}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(30px,5vw,62px);align-items:start}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+.about-body p{margin-bottom:17px;color:var(--ink-2);max-width:62ch}
+.about-body p:first-child{font-size:1.1rem;color:var(--ink)}
+.about-shots{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;max-width:540px}
+.about-shots figure{margin:0}
+.about-shots img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.about-shots figcaption{margin-top:9px;font-family:var(--display);font-style:italic;font-size:.86rem;line-height:1.45;color:var(--ink-3)}
+.side-block+.side-block{margin-top:26px}
+.side-block h4{font-size:13.5px;font-weight:600;color:var(--violet);margin-bottom:10px}
+.side-block ul{list-style:none;display:grid;gap:5px}
+.side-block li{font-size:.93rem;color:var(--ink-2)}
+
+/* ---------- contact ---------- */
+.contact{background:var(--white);border-top:1px solid var(--line);text-align:center;padding:clamp(64px,9vw,112px) 0}
+.contact h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5.2vw,3.5rem);line-height:1.07;letter-spacing:-.022em;margin-top:14px}
+.contact h2 em{font-style:italic;font-weight:300}
+.contact .mark{justify-content:center}
+.contact p{margin:16px auto 0;max-width:50ch;color:var(--ink-2)}
+.open-for{margin:26px auto 0;display:flex;flex-wrap:wrap;gap:9px;justify-content:center;max-width:720px}
+.open-for span{background:var(--violet-soft);color:var(--violet-ink);border-radius:100px;padding:8px 17px;font-size:13px;font-weight:600}
+.contact-links{margin-top:28px;display:flex;flex-wrap:wrap;gap:11px;justify-content:center}
+.socials{margin-top:24px;display:flex;gap:11px;justify-content:center}
+.social{width:46px;height:46px;border:1px solid var(--line-2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .18s,background .18s,color .18s}
+.social:hover{border-color:var(--violet);background:var(--violet);color:var(--on-violet)}
+.social svg{width:19px;height:19px;fill:currentColor}
+
+footer{background:var(--white);border-top:1px solid var(--line);padding:22px 0}
+.foot-in{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:12.5px;color:var(--ink-3)}
+
+@keyframes lift{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-grid>*{animation:lift .7s cubic-bezier(.2,.7,.3,1) both}
+.hero-grid>*:nth-child(2){animation-delay:.1s}
+
+@media(max-width:640px){.axis-txt,.marker-txt{font-size:16px}.val-txt{font-size:19px}.curve{stroke-width:3.4}}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .portrait img{opacity:0}
+  .portrait img:first-of-type{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="nav-name" href="#top">Arpan Chatterjee<b>.</b></a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="#why">Why</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#audio">Audio</a></li>
+        <li><a href="#finance">Finance</a></li>
+        <li><a href="#films">Films</a></li>
+        <li><a href="#room">Room</a></li>
+        <li><a class="nav-cta" href="#contact">Let's talk</a></li>
+      </ul>
+      <button class="tt" id="themetoggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.4v2.3M12 19.3v2.3M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.4 12h2.3M19.3 12h2.3M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap" id="top">
+  <div class="hero-grid">
+    <div>
+      <p class="hero-name">Script writer, researcher, content strategist</p>
+      <h1>I write for the ear, the scroll and the <em>search bar.</em></h1>
+      <p class="hero-sub">
+        Sunday Suspense adaptations, Sherlock Holmes in Bengali, finance video people watch to the end,
+        and the SEO behind a stock research product that went 6x in three months. Radio taught me the rule
+        I still work by: if a line does not hold, the listener leaves.
+      </p>
+      <div class="hero-act" id="heroact"></div>
+      <div class="hero-meta">
+        <span class="chip">Bengali</span>
+        <span class="chip">English</span>
+        <span class="chip">Hindi</span>
+        <span class="chip">MSc Economics, Calcutta University</span>
+        <span class="chip">Kolkata</span>
+      </div>
+    </div>
+    <div class="portrait" id="portrait">
+      <div class="ripple" aria-hidden="true"><i></i><i></i><i></i></div>
+      <figure id="meframe">
+        <img src="photos/arpan-front.jpg" alt="Arpan Chatterjee" onerror="photoFail(this)">
+        <img src="photos/arpan-street.jpg" alt="" aria-hidden="true" onerror="photoFail(this)">
+      </figure>
+      <span class="cap">Kolkata, since always</span>
+    </div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="band-head">
+    <h2>Written for</h2>
+    <p>Radio, film, OTT, fintech, food and mobility.</p>
+  </div>
+  <div class="marquee"><div class="marquee-track" id="logos"></div></div>
+</section>
+
+<section class="sec why" id="why">
+  <div class="wrap">
+    <div class="why-grid">
+      <div>
+        <p class="mark">Why I do this</p>
+        <h2>A voice, a dark room, and <em>no way to look away.</em></h2>
+        <div class="pullquote">
+          If a line does not hold, the listener leaves.
+          <span>Still the only rule I trust</span>
+        </div>
+      </div>
+      <div>
+        <p class="lead">Every Sunday evening the house went quiet for an hour. A story came out of a speaker and nobody moved. No screen, no subtitles, nothing to look at, just a voice and whatever your own head built around it.</p>
+        <p>I did not know then that writing was doing all of that work. I only knew I wanted to be on the other side of the speaker. Years later I got there, and found that radio drama is the strictest school there is. There is no picture to hide behind. A weak line has nowhere to go. Lose someone and you do not get a second attempt at the same sentence, they are simply gone.</p>
+        <p>Economics gave me the other half. I liked that attention leaves a trace you can actually read, that a feeling can be counted. A dashboard now tells me what a Sunday evening silence used to tell me: whether anyone stayed.</p>
+        <p>So a mutual fund explainer and a Sherlock adaptation turn out to be the same problem in different clothes. Someone is one swipe from leaving, and the only thing holding them is the next line. That is the part I am here for. Not the deliverable. The moment a stranger forgets they were about to scroll.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="results">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mark">Proof</p>
+      <h2>Six months of one product, <em>in one chart.</em></h2>
+      <p>I took over every content asset for Insights.market in May 2026. This is what Search Console recorded after.</p>
+    </div>
+    <div class="chart-block" aria-labelledby="chart-title">
+      <div class="chart-head">
+        <h3 class="chart-title" id="chart-title">Insights.market organic search clicks</h3>
+        <span class="chart-note">Google Search Console, Jan to Jul 2026</span>
+      </div>
+      <svg class="chart-svg" id="chart" viewBox="0 0 860 340" role="img"
+           aria-label="Line chart of monthly organic search clicks. Flat near 2,000 from January to April, then rising to 12,415 by July after content ownership began in May.">
+        <defs><linearGradient id="fadeAmber" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FFC14D" stop-opacity=".6"/>
+          <stop offset="100%" stop-color="#FFC14D" stop-opacity="0"/>
+        </linearGradient></defs>
+      </svg>
+      <div class="chart-legend">
+        <div><div class="legend-k">Before, Jan to Apr</div><div class="legend-v">1,971 <span>avg clicks</span></div></div>
+        <div><div class="legend-k">After, July</div><div class="legend-v">12,415 <span>clicks</span></div></div>
+        <div><div class="legend-k">Impressions</div><div class="legend-v">606K <span>from 254K</span></div></div>
+        <div><div class="legend-k">AI search impressions</div><div class="legend-v">30,467 <span>in July</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mark">Selected work</p>
+      <h2>Four practices, <em>one habit.</em></h2>
+      <p>Audio adaptation, fintech growth writing, brand and creator scripts, entertainment social. Different rooms, same question every time: will anyone stay till the end?</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter work by practice">
+      <button class="filter" data-f="all" aria-pressed="true">All</button>
+      <button class="filter" data-f="audio" aria-pressed="false">Audio storytelling</button>
+      <button class="filter" data-f="growth" aria-pressed="false">Strategy and growth</button>
+      <button class="filter" data-f="scripts" aria-pressed="false">Brand and creator scripts</button>
+      <button class="filter" data-f="social" aria-pressed="false">Social and entertainment</button>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section class="sec" id="audio">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mark">Audio stories</p>
+      <h2>Stories written <em>for the ear.</em></h2>
+      <p>Adaptations for Sunday Suspense and Goppo Mir-er Thek, plus original fiction written and directed for Spotify. Press play and it opens where the story lives.</p>
+    </div>
+    <div id="audiogroups"></div>
+  </div>
+</section>
+
+<section class="sec" id="finance">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mark">Finance and markets</p>
+      <h2>Money and personal finance, in language people <em>actually finish.</em></h2>
+      <p>Long and short form for Insights.market, and the reels that made Grown Up Tales watchable. No jargon, no assumed knowledge, and every claim clean under SEBI rules.</p>
+    </div>
+    <div id="financegroups"></div>
+  </div>
+</section>
+
+<section class="sec" id="films">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mark">Brand films and sketches</p>
+      <h2>Brands without <em>the pitch.</em></h2>
+      <p>Sunrise, inDrive, SVF and Mirchi Bangla. Written so the reason to watch arrives before the logo does.</p>
+    </div>
+    <div id="filmgroups"></div>
+  </div>
+</section>
+
+<section class="sec" id="room">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mark">In the room</p>
+      <h2>The rooms the work <em>happened in.</em></h2>
+      <p>A script has no face on it. Most of this job is invisible by design, so these are the few evenings someone happened to have a camera out.</p>
+    </div>
+    <div class="wall" id="wall"></div>
+  </div>
+</section>
+
+<section class="sec" id="path">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mark">Path</p>
+      <h2>Radio drama <em>to search data.</em></h2>
+    </div>
+    <div class="tl" id="timeline"></div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mark">About</p>
+      <h2>The short version.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I started by adapting Bengali novels for radio, which is a strict school. There is no picture to lean on, so if a line does not hold, a listener leaves and you find out.</p>
+        <p>That habit carried into everything since. For Sunday Suspense and Goppo Mir-er Thek I turned novels and Conan Doyle into production ready Bengali audio scripts. At Grown Up Tales I made mutual funds and Form 16 into short videos people finished. At SVF I wrote for film audiences that changed completely from one title to the next. Now I run content for Insights.market inside the INVESMATE Group, where the feedback is a dashboard instead of a comment section, and where every claim has to clear SEBI compliance before it goes out.</p>
+        <p>I completed my masters in Economics at the University of Calcutta, which is mostly why I trust a chart over a hunch.</p>
+        <div class="about-shots" id="aboutshots"></div>
+      </div>
+      <div>
+        <div class="side-block">
+          <h4>What I do</h4>
+          <ul>
+            <li>Content strategy and SEO</li>
+            <li>Performance marketing copy</li>
+            <li>Video, reel and YouTube scripts</li>
+            <li>Audio adaptation and translation</li>
+            <li>Newsletters and long form research</li>
+          </ul>
+        </div>
+        <div class="side-block">
+          <h4>Tools</h4>
+          <ul>
+            <li>Google Search Console</li>
+            <li>Meta Business Suite</li>
+            <li>Canva, Google Workspace</li>
+            <li>Excel, Python, Stata</li>
+          </ul>
+        </div>
+        <div class="side-block">
+          <h4>Sectors</h4>
+          <ul>
+            <li>Audio, radio and OTT</li>
+            <li>Fintech and BFSI</li>
+            <li>Film and entertainment</li>
+            <li>FMCG and mobility</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="mark">Contact</p>
+    <h2>Tell me what <em>needs writing.</em></h2>
+    <p>Open to work in these three areas, full time or freelance, Kolkata or remote.</p>
+    <div class="open-for">
+      <span>Content strategy</span>
+      <span>Performance marketing</span>
+      <span>Creative writing, scripts and YouTube</span>
+    </div>
+    <div class="contact-links" id="contactlinks"></div>
+    <div class="socials" id="socials"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <span>&copy; 2026 Arpan Chatterjee</span>
+    <span>Kolkata, West Bengal</span>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   EDITABLE BLOCK. Everything you might want to change lives here.
+   ===================================================================== */
+
+const ME = {
+  email:"cwarpan01@gmail.com",
+  phone:"+918670160447",
+  phoneShow:"+91 86701 60447",
+  linkedin:"https://in.linkedin.com/in/arpan-chatterjee-943239261",
+  instagram:"https://www.instagram.com/chatterjee__babu/",
+  resume:""   // put a PDF in the repo and write its filename here, e.g. "Arpan-Chatterjee-CV.pdf"
+};
+
+/* BRANDS -------------------------------------------------------------
+   Logos load only from your own repo, so they appear instantly and never
+   depend on an outside service. Every file in logos/ is already sized to
+   the same 600 x 200 white canvas, which is why the row looks even.
+   To add one later, match that canvas and drop the file in, or send it
+   over and it can be prepared the same way. If a file is missing, that
+   tile quietly shows the brand name instead of breaking.
+   -------------------------------------------------------------------- */
+const BRANDS = [
+  { name:"Mirchi Bangla",              file:"logos/mirchi.png" },
+  { name:"SVF",                        file:"logos/svf.png" },
+  { name:"hoichoi",                    file:"logos/hoichoi.png" },
+  { name:"Goppo Mir-er Thek",          file:"logos/goppo.png" },
+  { name:"Swiggy",                     file:"logos/swiggy.png" },
+  { name:"Sunrise",                    file:"logos/sunrise.png" },
+  { name:"inDrive",                    file:"logos/indrive.png" },
+  { name:"INVESMATE",                  file:"logos/invesmate.png" },
+  { name:"Insights.market",            file:"logos/insights.png" },
+  { name:"Grown Up Tales",             file:"logos/grownuptales.png" },
+  { name:"Pratilipi FM",               file:"logos/pratilipi.png" },
+  { name:"Pocket FM",                  file:"logos/pocketfm.png" },
+  { name:"Indian Chamber of Commerce", file:"logos/icc.png" }
+];
+
+/* How Instagram posts are shown.
+   "embed" puts the real post in the page, cover art and all.
+   "cover"  uses a title card instead, and uses your own image if you add
+            img:"thumbs/name.jpg" to that entry. Switch to "cover" if the
+            embeds ever feel slow. */
+const REEL_MODE = "embed";
+
+/* AUDIO STORIES ------------------------------------------------------
+   YouTube covers load by themselves. Spotify plays in place.
+   -------------------------------------------------------------------- */
+const AUDIO = [
+  {
+    group:"Sunday Suspense, Mirchi Bangla",
+    note:"Research, adaptation and script",
+    items:[
+      { title:"\u099C\u09C1\u09A4\u09CB\u09AF\u09BC \u09B0\u0995\u09CD\u09A4\u09C7\u09B0 \u09A6\u09BE\u0997", bn:true, sub:"Arjun Samagra", by:"Samaresh Majumdar",
+        url:"https://youtu.be/P8wd2E5W_Wk" },
+      { title:"\u09AE\u09BE\u09AF\u09BC\u09BE\u0995\u09BE\u09A8\u09A8", bn:true, sub:"Mayakanan", by:"",
+        url:"https://youtu.be/SKWC6pgJ14Y" },
+      { title:"\u09AC\u09BF\u099C\u09AF\u09BC\u09A8\u0997\u09B0\u09C7\u09B0 \u09B9\u09C0\u09B0\u09C7", bn:true, sub:"Kakababu", by:"Sunil Gangopadhyay",
+        url:"https://youtu.be/nurozTQsjhM" }
+    ]
+  },
+  {
+    group:"Goppo Mir-er Thek",
+    note:"Sherlock Holmes translated and adapted into Bengali",
+    items:[
+      { title:"The Gloria Scott", by:"Arthur Conan Doyle", url:"https://youtu.be/0Q4-2RO3Wq0" },
+      { title:"The Valley of Fear, Part 1", by:"Arthur Conan Doyle", url:"https://youtu.be/DsF1Zoxa1F4" },
+      { title:"The Valley of Fear, Part 2", by:"Arthur Conan Doyle", url:"https://youtu.be/m3rr-3akjnc" }
+    ]
+  },
+  {
+    group:"Original fiction and direction",
+    note:"Stories I wrote from scratch, and episodes I curated and directed",
+    items:[
+      { title:"Niyoti", by:"Original story, written by Arpan Chatterjee",
+        url:"https://open.spotify.com/episode/0pdn8XfEt933XI0785TALp" },
+      { title:"Afreen", by:"Original story, written by Arpan Chatterjee",
+        url:"https://open.spotify.com/episode/56QQZSSLRHxv04XCQP5f25" },
+      { title:"Mohini Bhog", by:"YT Originals. Content curator and director",
+        url:"https://open.spotify.com/episode/5XXSzJWUEBY6W6W3uuM9NK" }
+    ]
+  }
+];
+
+/* FINANCE AND MARKETS ------------------------------------------------
+   This is where the INVESMATE and Insights.market work goes.
+   Paste any link and the page works out what it is on its own:
+     a YouTube link becomes a video card with its real thumbnail,
+     an Instagram link becomes an embedded reel.
+   Just copy a line, change the three fields, and it appears.
+   Example for a YouTube video:
+     { brand:"INVESMATE", title:"Power TI Masterclass promo",
+       note:"Dialogue driven explainer for complete beginners.",
+       url:"https://youtu.be/XXXXXXXXXXX" },
+   -------------------------------------------------------------------- */
+const FINANCE = [
+  {
+    group:"Insights.market",
+    note:"Stock research written for people who are not in the market yet",
+    items:[
+      { brand:"Insights.market", title:"Research, made watchable",
+        note:"A research desk view rebuilt as something a first time investor can follow.",
+        url:"https://youtu.be/3NSk9KUypVU" },
+      { brand:"Insights.market", title:"Market breakdown",
+        note:"One market move, explained without the jargon layer on top.",
+        url:"https://youtu.be/CVa0GEgHWiQ" },
+      { brand:"Insights.market", title:"The investor's question first",
+        note:"Opens on what the viewer is actually worried about, then answers it.",
+        url:"https://youtu.be/s3mk8Qjh1dc" },
+
+      { brand:"Insights.market", title:"Markets in thirty seconds",
+        note:"The takeaway lands before the viewer has a reason to scroll.",
+        url:"https://www.instagram.com/reel/DdEYnfdkhji/" },
+      { brand:"Insights.market", title:"Numbers with a reason to care",
+        note:"A data point framed as a decision instead of a statistic.",
+        url:"https://www.instagram.com/reel/Dcn9-Q3TMM1/" },
+      { brand:"Insights.market", title:"Research, cut short",
+        note:"Long form research compressed without losing the point of it.",
+        url:"https://www.instagram.com/reel/DcV79JQz425/" }
+    ]
+  },
+  {
+    group:"Grown Up Tales",
+    note:"Short form personal finance, written for watch time rather than views",
+    items:[
+      { brand:"Grown Up Tales", title:"Market explainer",   note:"Hook opens mid question, so the viewer has to stay for the answer.", url:"https://www.instagram.com/reel/DC6iMZLSe9U/" },
+      { brand:"Grown Up Tales", title:"Consumer behaviour", note:"A dry data point rebuilt as a story about how you spend money.",     url:"https://www.instagram.com/reel/C9m1XZtvq0a/" },
+      { brand:"Grown Up Tales", title:"Policy impact",      note:"Bureaucratic framing stripped out, rebuilt around your wallet.",     url:"https://www.instagram.com/reel/C4VkTVRyaNx/" }
+    ]
+  }
+];
+
+/* BRAND FILMS AND SKETCHES -------------------------------------------
+   MIRCHI_STILL is the cover frame of the Mirchi Bangla reel, kept inside
+   the page as data so it never depends on a file sitting next to it. */
+const MIRCHI_STILL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAcFBQYFBAcGBgYIBwcICxILCwoKCxYPEA0SGhYbGhkWGRgcICgiHB4mHhgZIzAkJiorLS4tGyIyNTEsNSgsLSz/2wBDAQcICAsJCxULCxUsHRkdLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCz/wgARCAIuAVADASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAAAQACAwQFBgf/xAAaAQACAwEBAAAAAAAAAAAAAAAAAQIDBAUG/9oADAMBAAIQAxAAAAHg3E5+yCippFEgURooqQRQwiRhEptLk5BOSkESNpJG1OQ2pyQCXjjUrBhOANTkARQNJQwHEKJRnzgUSSSJIEpSSKGkiMFEkCiMFFSSRJAopgokgi4GlEbZ4ii1UlkhmrJ6lsiL000lA1PSbE5EaKKu5wJSkkUSSKTSKJAlDBRGCipJIkgURhOKYKcpNTiNqcBpOSYljcoNRSuSRJNTkIPSWWNFStoIm/ACipAojBJG1OQ0HJNpJAFFSCJJAokkSVJpKTSJJBOKbU5JtLgARINTkDU5CYSQa2RoUCnXc9pJJAlAkSMJyG1OKbSXDanhSY4kkE4JoVs+ePTrUHWc21cxi4dIMjUo7b3FV7giQanhATkDE5AA4hGXJrOKN3PSRGiUCRIwUU0Q4AUlJByJAoqSDowyYug6CfnuVXoMOWzzCp3fN6s+TO2K/P1EuBt5vTvLxVvAcU2pzRNTiDE5wRp4DOTlo56RQAojTgQSRGSihBwUkHAkUQNWaUCy99JyUeXB0Z4+2PUyoAyrk6+XtyV54Dfk6qxhb2T1bU5U7mpwAIoAnITWvQZhS085EEaSIJJww4FMkFMhJtyBUlFLbeXN0H9NVh52s62oQO31FcljdDUuhVx5W3U1kRdkm6rluho7V4VJM3dsEGM0iEAOQAEJZaS14A4ECik0QRooDKRGi1yZIKm65U6eOWmtB1HOw79LfHHl9bj1w5zG6THvnjZ+tR24aoc2zM+7Sux1pAV7J9jn3xu6lU7ubsNJUZNRQY6J14gQkFBDJCG4tI04FMOBJFwcpO6bmOgpzyScfonN2LGVepe7lXameWTz3RN1R5fSuc1qzugtwX1U7UUrmAQrgklHT28rUz9ooinUCQLGIWrGkC2ikhEEaKJJFJNEPUiQ4mej57aqz7Zp2aOVUlQpusQSQFWTW7CxdTleaetec3Shigt33UFJHZAAhoAojob/ADnSUdUIijYAUPFSWrGkCMgoEQRkgkikVJOBUnEFSdqZSjDuKPB58fPd/S4q2zuelr2qBscrKWcfcpN+Wu67jt+pgSugA5rigULS3aN/N1mpyq0NDkPBSWvISEBTSNyAQ8gknIFTJSUnEEmXNfGUdTSY+dnDTjXJjpW5FKbv/LulK+uyuhwsNvLc3v8AP7tDUlpggQASRHd1Of6LN1WB6q0NRIc8gteVyaRogggSguY4mXNcppwSk8gqb3MkUjovms46r9fDzcvL2tx8Zc3zne4dy7mjbbHJ5zzfofnurcxBa4EEJhJCd2HG9dTtlBGfoBFoc+gtmREFNFICQVIuYiUiaVJ6BU3PjmkGOyzXwZ2uY+V3zqmjwOhC2zXrdClo+c7D1ynUh28+nja9fVDhanQ84tEr4UpXte1sE+A6DQ5yjd0oRx9pqQT50tWzG5BDcgkyQU3EIk4iZtl/Yv6uPm6Mo08aLO2ppZs25M6Lx9pudj09D5pHaqsw7vby7c4rWFOvMtvdGzB4zvuXjZhJKMvQbHG9NOq5l7dGFnJ9FydnF6DpWpZurzgI14Skk0QRkhKT0CpHp+a7bTzZk927zMEzmCkDXBJJXkRLgbeGpZ3RtnjYU4OuNSRyShY6M6mX0/OQnw8ehajbleiebd6Rm52boXHnMHq+ao33trkHUdTsV0Q4759dA4fPHoXBzz98pYLt4pY0t7J7/G1U1/Q5qIIEOAKQJOCEWou1FI5NocGhla0IU7iYm2vRjjOzy+py1eip0/OFr0Crm6yhjz346NGY2Qc7f1oC5OpzoyiR0TgldG5Re5hnGlmWsf2PnundHJdU5zHCcEk5Klnn07WxSvKUhYSKdG8FnaBCOK3XRjx3+bjZQx9yerVzdXcwxO6nlOqcNaGzSpsqJDk9LqkFztLk0oc5jhyOjelJDLla8zcrXxPWcDorFZzVsoIT4SDsLYxh79mloRmwFhW9IAWOYxyhmRnc50/ME04Mruy8XRqQstdbyfYOELLsVUskg8nqdOgedoRBQXNcm5zHJvxtnnetzr+DtUfQ8fWky9MLsDs4V2enaDKgqdIpXJonJBqYKYtINjkxmXbGPqA/m+jxx1Xy4ilzfQ8339V3Idzyuu1r5t3iapa5DuR1ekLHc7SS1yCQU3uY9M8x0fKd3kaslW32uZR2c7QUoKbJXHRUuanX3M3URZcWIEc1dqeSGUIeU6Xix7e1yvTt2c7QzFF3BdJy0bNbssraRxde0FPb5HsOSpu1Hxv5HR6Itdz9Rc0puc0oc9j4kPHdZxfo+NvXM+11MD7eZdDK1MroBT4ulGncla2JpVyFJlSStKF+WvMFThu18/JXul4/XH0wE7hwurzffwtguRVlDNrdDzCn0fM7uFn0zGvJzej1RaeZpcWlNz43IkfHJEr8vu0vS8ShewNLpY6u9jagQdPhbajRt176Aowi2xzW6THPFdToUqXHdfzpZz12nbJdtV06jr5nrcLejIZG1lkZ8utsRs52GnJl3Ty1ZsevsSDydRIKZcCh8kcsTDhuv9RwcXI6nnNufQt595rTvwSxipokiGevZCSN9UcM9e0F2pYqCr4uvmEudraeZG7ttbld2VMNuemKSKKinTruxqb2zFubfNJG+m3tS08bW4sch8kckW57ClSgsUfW+elpR1NWdukyxGWyJIkg+ORAEMg7NKzSJvt07qhLSs02VqNiuSzsnbza7m9Xw/byridXx0XaLbOXVRZPXo1RgOlKwQa5doYZuPqLmGLlkjfEcWpxz6GhF6/zlV1mjbCzY5jrE7kaUUHMeyvJE4J6liqSlu0rsU2lYosqxGMlDUuVqrcjo8OUfSYGvkOLLFSxg3w17UFd1eVz5iCMX108cvI0opQk58b4t8M1XTnpTy5XqvPUsmR0pVu54zsE7YhMYTPiIRtYWTRIJz2oXIqYqgbuMmiTZUu0o2QZupQqu6TEja4SS05s2q/FOzHoqskjsYLXNv0sIy1dde4WfNLtzzGllNiq/P38tmNow9vlUa78hT6jpsWeslkoWJ12TFIwRBictiKMlfquyiOLqYfRqcjJAKnTkqwsexNqvpSTCE4pzPVZK+OXHfUhs17G1B0nWSV+lxCUyUE9bbpjdwDnuz7cteneoU3+g5e35/zd21tczt9bl3ZqEjjVuZmiFkRvCblOi49SsdHj6Q5cWTDjJro46rrLqCRqWMneovRFjJeSRVOCtahtK16p1ZLiSDrvRBUlPX0px0xqQ7/N8/HsZKeEpm06NChK3Pris1nW4tS7zkso3Njm9WRpsqVHE0wxT3Y8uiKzVkjhNhmMXGpXhX28fRqu0pY5OfqQIi44Z4bHD2/E9dTZwZS6d4S1IrN07F15tKB0HT4OfzHXZWa3nbXQ5+fdmuEllEbr9ZRgZPZDNXY85UUBe2JnNLQpzI3buTEfS06jGuchiGZw6tsbVcmTiXDqjA0oSy23WSlJ0c0vP0+WEHvTn9V8v9H5PO43seA9Hebndh2M6d7ld3CpfYtz7WEyOc3Oh6JJ5T6h5fYQej+b+p3GPbzrmNV+kzFnNPF08wKm/wAZBuPReF6Pzutx6OVa7Muh6O5a85HIfFWFy3pXnvoWiXEdHT1K5S5FjKrVq/zPS2djzAtPdst+reSeq8nn8N2/CdZZRf4rR55w9I57Z5rGu6829C4qEOV63ivVew6PB7nPtRek+adzF1dfOu446exha/MPP8zoOS9E/V+O6nP5Sk8+7nht7rpN6MrnrPnfbcWOB0XFdNBZPacdGPpZKtnESebemea7rIu54HptHV49JdCw+g+fbVGfZz62gqMfHv5mmPqGPyz8Zq5jM3XCz13EWHns1QywO5gyQOsw4Iomy/Cele0ObdJ+h83ijOtjIYNLaxzZPeGFLUp/R/J7VZ6BzmKU10fHvvs1IKUUyzs85o17f//EADEQAAEEAQMDAQgCAgMBAQAAAAIAAQMEEQUSIRATMSIUICMwMjNAQRVQJDQlNUIGFv/aAAgBAQABBQL8nCx/Ws2UQOP9TG+ClPd/VcOmj4wsLH9OJY+Rt5f+pzx+bj+4x+NnCKURT2V7QaCdif8Ao/C7j7jN3fcuHW50xcjYIUEgyN/Qv4mfmOI5XHS5XaTTjiE4nbrGewwdiD+gP6YdM7kVOr2w2iyLCs145EdVmRxuHSCbtuEgn7+FjozfjQw9044sKQ2iD2iM3dSKRG2UY7XQG4qJ8h8p/wALwnPCCWUJIdWkF5b8lleyTEW23CPtZMu4xo+FI+etefZ+bG2V3e3IJvYjhjGlDp4D3pykBhllKGf/ACSbdBKTZYvPQPMX2vyxqdulWqNZk9mavDPl5KMPwYq+97IFGNZvi6rGwkEripHZ36RfX7QAr2kE0wOm593HTH4LLfNLGJtpcdzUCjezIFqnTiC3XaG1C9l7Mj+0DG87y3JJINg9R89QlIHhnaT8jTImYJpCknl9LSf5IU4Rrwl4mUimJ2aV8g0BkHQfPuCTi8Ejyfj1j2UHuBGT3BUjCSqy8OXEz5RtxM+SGN5SsSDBBE8e6aNsA3q92sRj+PWbdTmEjstoszpqU0AgOSfw7KwTCOj7TntA1a1aJynrR5aUiaKNuPdp/S3j8Wj9gBjjIjJE5k4jy6IDdWaNmRU45aU2oVfaK7h6+BGSPcPj3qn3PxqHKOnvJou2xugdd/tItSYVFfhMd0cqMCBahGwWRfnPBefdq/f/ABqUghL3hR2wUluMU97KqMVowrwxp2jXZ57pCtQpDZiIXAt3HvUh+L+M7ZaSayxFJI6ySiYpChCKjW70JLYJrBxpjE1IzirVQJiJtpe9TFmh/HMNzYTxtgMwlZuTWVjMdHVTptVshchMEZOMmpSu5O+X96jjb7j/ACM/McMu48bE8fIQ5U0W0tCttG5DlWRwrvPyKZYm+Zj5kEWZTpEK7BJqzuhqq1S7scAbLTeJw3DejcfkC+CHkfxW5QRtE0PF/CcVtW1SKxX2uD5A/F2LcBcP78T5h/DyhFyeS8MCaY3jebZZbq6fl7M4wk2BGWbDSmRqSJlYFwk3OtzrKiiKYv492gfh6cm6P8MQck1aSyiOtUVUCsFLTlIICYo2FYRMjkCICkk1LU97ki5ReTFXI8j10uLbXfKtwDKA76swkxt+BHVIlHVAU0I4mgeUf4+GJxbC2NIzO8J1bW97M8dWG5rU8pPZu2YtLimhvMp3JhhbcThlWQUwbJOlHB1ZzaKPt5CeIZFHMUBhI0g/NijeU4qwxsOFsZbXZMS8rCxhGDSNJHsHULc12SvpTMhBhbHRwY2GJokXiVsq5FkelK1NHIP+VddSmMLSHvOvYeJ2JiH5lGHEWFsXLJiXD9Gfrq0hNX02MO/h+5jo/Rnyi8YyigI0TYJAbgVONhqXbgVgIZJI7lRoK/h61poxCUJPli2Sj4D5NgO/YjrRVyHllhOPDJmy7ghZmayTxkwkUlig8UCK21elXqHLMLCJWp2UvLpicX/il/FL+KZfxS/il/FMv4oV/FCv4oF/FAo9OjiOIvie83SR+AHBl4xjr5VwyBqNYYYS4W9mRHE6KaMWt2Ssu/C0ja6N2ZGXHY3nJEIraK2j8uR+I3/yfeZO/D8mI+ovHX9+nuOD7i3OJ5WzKmFgF3wTB6t7gdW20ywtqn8fMMsoH/yvflPaoTeScfL+erqWhDPIIuAkSnEk/m3Y3lyTnuFkz4VKx3R/UvIfL/WeN2Ih5b3XVmTcdeLtgK/9+4z8/omVl9sJTll44+6IRi+oDtHpptfto3ypPt/LmLaA/VX9UUPEOU3hfvKk4AGzLG+QYn2f+vdzx+rHMQCLDjuHt51B8uqfbaff0mbEXy7R+sPIP27w/Tn1/p+GZeXnf0b2Fqv2U3j3H6MrLYjGMtgDtfc5Pbf40cRSvQGGSYIHAGFWft/Lsfdj8Xvh2YnzFH9x0RLKjV2X1V4d7xthv3/5TdH6MTOYup/VH2W2tGDCTtFGZ7z0WPdZCFiuQw7AlEgY5QnD5dh/iReL8e+DTpe5Tb6jLCeX1M/DPthP4s4CwC3j9fpN1nstvrFmVm5P6XPCF3J9Wk2iIuT6bB2JJGxcjutHJNI8Sy8dtvlP4sP64H9MrZGiPbdvM5qPkhbKslgIB9bOmTv6f0g8In4lLE1d8TZw7/Q7CzvIItfk7tzTK+Trt8QvVNMOYZA2UJfut4+TJ9FgvXB9D+IfvD5mL1Q+I1OWThBC2EIu6dvQSJ0K/Uj8WS/yAPgS3DvbBPzek7UFaB55KwbAH0QR8xXW7cHJ0TblvlTfblP1wv8ADyg4mJ9oO+SgbgvSGN0oDtb9xy7Eb5c3TvyKdSeLkmJq5Zaqfod0Abn1abuWqEHbpxNzdLt0oI8hqXquY2mTfEZ/lWua7R8xP6WdOe2Sw/obzXDDTkoQ5JA3KfzI/qNB4UnI22+PBJhVp9thObDCDPZuu2Ahb16oXw6ceFG/tWoWT2W5ODF1n5M/02Awq8mWyr0jipiyELbjH0xnyUbJ03lP9Un3MZcWwxeDV0PiC+1Zyhz27p7aWlQ/EfxD9dr4t6/L7Lp2jwK9M82oyPmRnWfk2pNr/U0uYJmPLTB3WnVYUXgR5HhE6jzlZ9T8yD9SkfglaHKdlVJmnfDtJHvCPMM//mLhVR7trUz9ou7mq6fCebTvy3yrv3QjNmsx9wK8mwxz3JuTqiiQN0d/UHC5dE+HZ+Q8qR0SnRjhZwoj3xcGE8aB8gRYiidoIIg51GxloWx0H5U7ZsbmZSlHi1DzSm7hvyddsAm4WV+x8cqVMg8o0SlUjel1pkm6IJe0Rtlm9KMlIeRObDyZkk8dG+VI3xNrLsgrG0Wrx4tt9QcR9GXhMfwzwjfKZAnRp3UqJuCZUT7dt2Q2Chc7AupLCKUiWHXhOmTfKP65JRFFadbTMoo3Y42yT8N0ZS/SGGHK/aBOidO6kRKQefokEt4TNw6/bok6dD1z8iVbMrYsJnYXhb1k/VlI6bwmTIfBI3TvyadGykZace+vPhgLyv0SfozdR8+8/gkzJ3wjlZlJNk4Pqfym6E2Xbjp+xTeCdG6fo6JSMqEvbnNnJH5Q/SSdlt9wfPvSltjZ5CXgZ7PqIyJP9NZ8xOspuhpnWV+wZfqU9q7u4n6GnRMmftzyyMwO+XQOtuU7J/cDn35G3Erc+0c8puWqC8dRyTeGX7ldM+GZ3deUDInVyZV2ReGRp+kwoJHMXdZQPyPh0/uBO4qO8SC5G6EhL3M8y2hFH8QmZSuzLToNyLgSTPxlC6LycmI4ZXd4+Rd8KU9oynvkrt6S6H1LlsOBNyiHawtlCnRe8xOy7roLpso7rOhmA2lcnXaYGwylPYRnufTJt1W3MQM0m8R8IVM6Hx5Qk7CPKuyYYeTibA9JJGznplPyh4dx3LwhTok/RvPVm6ZwqWTlUhozRtl9vqo1ezVlMZWhLBD4ygfgicpAYsYQsnfA3DydYckPjKtWnW51vdd1d1kxZTD0ZkzYTp0/SpH3LSb3YMQV3lyjJOWUbtGIF8ULcTj3HGUZWJQy7g3Ipe3XjLJdxb0xKQvTYLJ1G9DlxLNhP5Tl1jLafQW6unTrS6+0PC/XWJt0p+t3DCnznGwDJzJmdFI+xEgMgaKwWZD3QVJcF3Gdbl3MPLYkKWf6674gmlRypyz0wsLasKJ8xC3uOnTqh/pe7TbM+3jaiZTE2ZHFnDJSE+XzhO+48rKaR2TfUJxGiBF43YREzorfpcyJNGmbKx0x0dV39A+46dOtMLNX3aLfGReJCwpT3SKMXFmTshHpwsdMrcsusOsLCwmbLeJNqwn8LCgfBD7jra5IdOlNq0Hs8PWtp1iyrGlzVmCpJSYSy024GahYtKfSJ4Z5dGlryWq00LJk9aYQwtqr05LUn/5+bElWQJIYCmmsaRPDJNVmgfYTuGj2yi7a7FjB15QPrFDJMRQmxVtHtStPBJVlCM5Byq1M7Q+yWHaKXsqL7XWuO+xYmGrXm1CSzNfHdT0+Puz3MFPcttTgp2pL2qz2ArR4jt1q9KM9MoUns2bAj7K/TRoGjo2dZKKfSjewo4RDX7FmOrG7R262lUwjC1qjSTxeyKSUII9S1AbaJaZG0moaxWaOzpdP2WscQvrOoX/YxeaS5YiiGGLUYezb0ocUva4vadWhDt15Mt1p/wC5qMZS0pa8tcn+LS0+Lt1u/wB7W9Whknq6VXkg1DUK72StThTp6RdHYE1cTvnsov4WmPnTdT04I49D/wBZm/5zUK72pbU406mj2WOHUqb1p9N51DWP+vTvlVJexZ9orGMUgzRge7WtYrS2Fp8JDqjyMMush8PT/wDQp1sWdXssRUJMn1qv/lTStBDZtFempvup2pWr1ab41C1YarBp1kreoLVrBS3c4Whxbptbl21i8LRC3UNYkl9q0P8A1h/7hapYKa5BO8E7tHep6bCQatrb/wCEXjoHrKIGgrabL3dXvXWpxaVIVjVHjAj1KPuUqH+hcleCqTuTibxnHJ3I+kZbZZx71KIdqoWIxi1S00hwzMNzUY+7Q0T/AGnlAZdbrCEhedLg7Gn6rP3rpv0/+fPjXAxPoRt2oD36u8oDLrNZo5XbnS4zj0+o3/Na6XwS8dNFg7t/U5+xS0ktuo63G509BH4mszEN0rkcul6f/wBd8K5XmHtyutMk3Q9dN1GN4NQkhKRm3NOW1bsnT1OE68l2GDULl0rU0s8kyJ+S1kvZsp35WmW/ZLOqXI7ZDIUb07b1bFu6VqeSeSVadairS2dZiGOnfOtPduFckLrpl72Irlw7kgSvHJHqdWaDTZ6/teqStLqGVX1coKYWJYnc8vvfOnT9ubrWD4RvzH9q6/qHyLrKynJ92Ux8OXUXw+U7rK3rcmJbluRnhuolhOfGUJLKynfkTwnkW5+lYsL/xAAoEQACAQMEAgICAgMAAAAAAAAAAQIDERIEECAhMDEiQRMyBVEUQEL/2gAIAQMBAT8BUSxZFixijFGJijFGKMUYoxRijFGKMUYoxRihLe3G29i21hVIUofIwZiyxiWLFvDbaxYsTpxqLGQmXL2JSnP9RKxb/Tt5KurjTRPXTl6Ia2pF9so6qFXnbwLaXolTdSVz/GiVNO16E3Bml1Make/fnuVa8Y9H5E/QqpmmVoojJxd0aSsqkPNXlja5U7kYJD9ko/8AROWS2/jWldsVSL+y/k1MVjd7MjFSJRKkf6GacuUtQ4MjLJXXj1H6jdhdkVYkyfXY4XjcoRst9N+m68GoXwLK59DbQ5P7F8kY9WLW30r+HjqxyjYlUxZ+e5KTZcj7EPfTxxhyvwW2q06fyR+MsNFKVx8KErw5rdFzU61X/HAUi6JLoi7MuX30r+vChyS9mr1+XwgQl2ZCZUrJdIlW/o/NJ+xTYqrI6rF9mmrpu6FzcrK5X/k1HqBU1VSp7ZcTI1B1LDkL2St9EHs0UpuLNNqPpi5fyFXCnbihvhHZi6KL6KepcemKTMmZMzZmzW1HOVuK4IRBDLFOXZbi+kVHeT8USI9qfvlXljA++CEx8EJ7MpvsXHWP4+SI2MprsXrjrX3bwoe0S+1EXHV/tyvukPgigu+Wp/fwoezYhFFcWal/PZ81s9kRiQVlxZqXeYh7obvwRJEVchRQopcpdIm7y8USaIFPa2y3ryxgx+/Alsj2iKIcFtY10urbJDW6JcIoRYjEWy4aupnOwiKK9JKKGtrbRQyK2uQ7FvHeUrK43diILs1E8nbbEaMSxjwgLeOzaXsq1o4dM+yKKcYpZNjfii7EZIckuyMkyK21ftIqJJdFhHVtkPiuDL/Ej76KTuhGr9onH49EV0RXTYhi4LZbPhTKP9bV4ZIhD6HHux+GzKkMV47CQ49CRQleSR//xAAtEQACAgEDAwMDBAIDAAAAAAABAgADEQQQEiEwMQUTIBQyQSJAUWEjM0JQgf/aAAgBAgEBPwHs5+Wf2owomZnbP7HzMf8ASBczhCkZcfsjaEE+rMruDTzHXH7DENLE9YdP/BgrKys7OMd9n4znkZgORFb/AIxVxtaJjulsTkCcmFgB0gtlbDOYpzs0xGWEY7dkFYjrjaofmL+ozPWHd+28LwtmATlxGJS8z1gO9nbIzPp8z6YCFceIYrYMRuXwfucpznIRlDDMIlPj4P28Q19MwvOZiWfiNKfhZ2uOYlOPMsWWIQZxlFBJ6xdN/MWpV8TE4z246Qj5gZiU/wAwIBsZbQGlWmC+YF2EO7COkxvnekZPaPwaFJ9U0+qafVNPqmn1LzRZKZPZOxMEzLPE9w/FBlsSleKAdowwbWeIfjo05WCDtkb2DpD8fTV/VnuHezxG8w/D01ehPcO9kfzD8PT/APX8sdm7xGh+GiGK4Nj2zLYRD8NGP8Y7zNGOYfjpBisQ9kwRjiPcRORO53QZbErXCgdoxY0tizOzDfSpzsEHjtHZjLJmDZq1MbTD8RqGE9PrwxJ2JnLsNDMxmh8wfDEpTiNnM07sXJMB+B2Y72dITsJY/Bc7qOu7QLiZnKcpymZymZmZlnUQ7Car/XszBeplVtbYwZkCPqK+XDPWC5H+07ZzCcdTEvrs6KYbFU8SYDnqItit9pgI3sdVXLGHBHIRjxGTB/UuvJ/Ttr+rop8TVhKhW1f4Mtsa/UdPCzSrX7LWH7usCDgpX7jGvtoZ1PXM9KyQxnqRIp6QrT9KXq8x8WtWHP4lfMUuU8T6ZHpDVNiem6dW/wApj5KnEs1Nns+0RFUM9a2eMT1E/bWniWWc9IDKa8XKK/8A2aqvi+3qI6pmayoCgKg8TRUlaix8maatPYdvzPTsLcOU19nCk/3NDX7dI/ua9eVBjYOh6S5T+kf1NLwagYlTe0bax4npoxTt6i3NlpE1VS/UIreJqajZqRWnTpGDLSUP4M9NwOS/mapOS52vpW5eLRE9pOMTxF0SBy38yupFAAHiWUpbjns6hxxMqpWpOA8T2UL88dYa1K8JXo6q1K/zERa14rt7Kc/cx1mp0q6jGZXpQlvuZltSWji0CKOssTKmf//EADcQAAEDAQUHAgQHAAEFAAAAAAEAAhEhAxASMVETICIwQWFxMkAEM0JSI1BicoGRoWAUQ2Nwc//aAAgBAQAGPwL/AIRX/itf/ZVBdBp+UUuqozVPyOi4RKrRYgZUm+QgR+QlY3mCfSFDm1F+W5XJUP5B2F0uVHcgGffZLEBPZFosxXVACzbKzgr7guMKm7h6e9xFYiJRwsdiCc5/zSEXT9MratiCYqto+zLRr0TWNjuVhdvN94finO4TAhatWGzWB/1I6zVQRKIJhnVF0QHJpum8KBdn7r/p2NaW6JjSwku9RHRN2TcZKFuBhcM0LSrLTIlphTZfEz+5q/HGMaNUus3/ANKcMDoqmvIoVHX3BtCsNm3LMoHBXVbOcH8JrGHc4aXYgKciQjT28rZjNQ6kqRQrCc9yAgOiwjwFitGY+y2jG4W5b9BI9uR3Tg1pNYUm0wr5uPsmuyO5bSKwjww0o6dESVs/pmd89vbnysQgOVCq30aqM/1bR4wjqFIzFQqrC3kR7dzVONyzJ835SvShVRQqW1GiJGR5I9vXrdmqlUWjBmVQLosTaFQ8U1WJvqUHkTp7iMSrKqgxvUwmsnLMqjgqLUXcCrwvz8ojfnqfcd72vZmDK4lnBWC0GNn+raMBjvdCY4UhTvu19zN2V5onfDvMTUXSjyI19zgOZCoslldT1BM/S7lygfbQq+sqz7g721aPKB1uPJb7WiwfDjG/7kxz/UVYv0dvWVm7O0dF1Lst2GVRJEu7XYdPaZKPl2P+uWFgxuVqXeg5eVAgeSmiRiAruOe40bmgW0g07BV5Bf1ddlxaoYhCkexrS/CHYR1hSLOfKyVUWmhWB/8ACNpaGAF+Gdk3ssEvc09kMVk4A50u4VxGTeb2kLF16BNDs+qNmcxUKOikc7CFlW+iruVzWKck2ZwijRqg74ipP0hQ0RfBXDfi0vbZsNCckT/27HLzcXnNFy7KRzcZzdytnZ5uz8Lj4rSKFHfICeKQjdiGas46iVGbtFxVtbXIaBMDemd2Fy4XcsDVAaU5UdMlia2p3jDp8LquEJzfuqjDC7wha5atPS6yazitC2gW2+I/pF/1IhTdRfN/xfN/xfN/xfN/xfN/xfN/xfMP9L5hXrK9ZQfiJhPHflA7wsrEfivUTLz6r8RaDCo0Ig5C55d6ul8uQELILIcx/JA3/UMSkGCjNwGQRRulpiFD/XeOa9NP3N5PYXDd2jpxdisMl0a3tMZXUruYCeIc96ZafY7kYRyydLpfXEuEQm37V/XLnuVrZnVNBzjfxG4WYFNU7kP8LEalAnpc0XfiDxzw261Z91UOQJuPId4UkrE/JUC8IhvQSjZ21JFConF3uHMN1na/wU3ehYjySLv4UFygCSi53RF2qef0rAcsUIfiLaATGYWJhkc4oaim7N0XHewBfxcb22Y6oNGZQb1iqt+zkzH6LTPyuE0KMGJPNF1szvO5ChTed9t+VzjMhbV3TJFyt3fqTJ1UdWJruaLj3G5O5QIjelAoOvOpyUdOqgZBOd2RP3FWbdVDs4Uc0XBON8bhkSFOp3ouLdLpKwDJqxHN6hOVm1NYPpCwfoCnluAz3GnuouneG6UbgTk6lzjoF+4qNLgzUrGcgE533OU9w1HmYhne2ED25A3puEJuLOE9G1P8XhuiIHqfRbQpoGQKPLAukZIOGRQCjem7+OQ0HKUAi0rD0uJTrTutmPTZqmcLGenMClZLZuyTfPJPJa8LEpucnO0CxO9TzJWAKeYLs6rE1Na7MXT7BzNFX0lahRdh9lCa4chhaeUB91LsJqxUN1FX2HC1S5TdG+7zyQ7RB2vszzXeeVh+327dAeSfPKw9HezlVWFt4d29kDoeXIM74ui8podnHLjflAHpytPCzB8ri4VwkHdiVN+0P8b1VREFD29Loxf2uIf0uFywt3QI9NEMKnci8KTvR7STkN2OqwOzNSnAH0lYbzvzfhbzmN774nM13K+pNPdVOHyi5p6qciu9znLFrum+m8DydseuW80LK6AFiKm7zfQqHIhYD/F+a4TQXN5I5DN+irdhVBv5oOXqwnugW2rCPK9QB83BQ0QqlV3yORGh3vG4TcXewjejXeoFNAsO5wshupTZh0mKKbQDi0u4mkSuFuEalMYYO0MAhBoG1xaBQ9hbfjNm4N1vwWYlfMbKcwtMtzTbNubigxo2k9QF+IwtUASUX4IGhu4bF/8ASl7C3zuYbNhceywlpxaLFGzH6lgtM1iawkC5zmmIROydRPaR6hCb43LNurgi8ig6BMLqNaZhE6VVfS2q+Hs/1SsZE9AmG0yGQ0WO0NFlLHjqntLQTJqhI4G5q0BFMN4f1fVOs2WYIbSSra2fGJxRAECMSx2hoqiWvHVG1Il0wELFvDZTDnaoCz2X8LG8w0IMY3hHW6zDqhNLG+vRcQ431KY6PolABuJzskMZlzqIMbkEYydVTqZWwnjTbXIgqNyy/cnNYJKG0ZhlfuYp6uqm6NoEG2bcRxKLRuE4VY2YymqJ0ENCdZWjgDMiULKzLZPRqtT2vsvCd8Q1xzqCn+UT/wCNWFmMpkokaQ0I2R9QqsTfluVkj5vZaaFNtC9lKiVjb6SrQfaxWeyZihMY8QWlNs/uVm/vCsla/EO6khqFi3pmsB3LP9wTrQ5NUkQ0ZBM8QiR4Cs/KNoRMJ9o6nDc5h9LKC51r0AhNs/uN8aFGzLuDMBP8p/8A8xc5p9LKBNe3ML9LwsJ+iZQ/duBozKa37QrV33AoOw4ick+1dnEpryOJuSd+mqsvCe9uak5lBwzCa8db2u0KeB9TVVbNzg2NUGNMtarIno5WgHlP/am2ZMOdkhbt+vO5g6uqUQMmUvtWfyrN+oVozrMq3jo0BCzJ4jkhbD687mB4g5r4khWbdTO4CcmVTtXUCZ3og4fSVau0CaGuIhqdaYhVv+qy8JwBlponMn0m4s+07gsrR0OahsgO5Cm9otX4XAQZW0+HbwxXug/04ckNo8ui4WdmzCYiVN+I+k0KZs5hqlri09ltPVqhaemMkNo8ujVHatkHrGSiw4nJ1oRjx5rERAGQ3HnBixKXUAyCa4Zgr8R4GrSrfZwxrowhPLTIFLtjgkjIoljy2VJNxnIjcxdTcD+SFf/EACkQAAMAAgICAgICAQUBAAAAAAABESExEEFRYSBxgZEwobFA0eHw8cH/2gAIAQEAAT8hSIQhCEEiEIREREQhCEIQhCERHCIhCEIQhCEIQhP9c3FLJpxPlCcQnE/1S4lsVKXROHwkTPEJ/PP5oIgnBrKnH4L02PgITiEJ/qEifKEHWumX5LYslNv9BPiuITicTlLHEIJEIQ7GlRu4J/DCcTifwT4QnKHQijF8JOZxPlCcT4JE5hOEiE5nwmCEvMOicTl/xpxBcQgkQnDTZi3zwitrBui+HXLRPnka4hCEIQgkQhCE4hCEHhSWWEO7oodeR7N/A0YMTYeVgWDZ8fCE4g8fHA+F/FOOhfCCJ5CcWwiNaKJkFyt6WhM3K+8cJjaEHAW8QhCYINX4Iny65nE4XEIT4NPqGPaGJh13+RqaMPRYbh+h1hwbZ1xjNgiw3wTiUhMEFwNCINHXKQxCJ8OhczHMpCMnurIKsvyXhBSk/VNamZCoSjTMDw8M2nV38u+GuIIT4r4QQjv4tpKzWTiE5GaUHUbyyY+qPjMHRas9we+/NRpRqIKwwo4WGPas2bVQ0TiEpMkNLiY+UOhGeF8Frl3m9DRobRlsKCuE20+4XxcfuF+CUwp0CTsK5M434CxhgrGLG5cu3TwMhCEREQa/kh18usDtYAG25EYOn+SuqaK+TXrGF8C8V+CCVWD0htVDH0IjtmD2vBBu+WWZxCTVGkW6aPH/ALGSVOohKjSHnk+DEL+BsXxJYwXVkNPNQO8466KqLE8MptTZDMLDwpmhvmkX6HOBroa5OKMmB86eaVAZFj/MT564fwXxpSkFvlCEHZeEKrT/AA/o8UlohYJK5fYpESzfIiGFGTYsVgx+YdsX2NTjT8UNmUXmnE5n8K56FvhCEb1Jf8iOlv0GIhg2quhoe00vhAGNQ39GhLPLEBK8BfhTtMmRLXg3clvk8lOROqoZ0T+SHXE+DhLKB0ISxM+ialFphiJeRFhb2NRhg4Si0VWosLqP9BOhwqD8AhXya+Ya+O/hfgjv+BcdDqQaEsdndWdCCkhtEqbaEbzr6Ca+jDO0KfogtGMwyqMqEe8mnye5cMgxIf8AGkLlcrQ3j9iEwfkUlKTyInYxZmS916OTFvpoaf6Aiyd/+08q7PA1BVy38KxjOhMov4kX4rh6XVgntoStUX4WxCK8GxsAiw3y8ss1+hC/UBbB8A6RhVNDQuNCB5fyo3gGT43+Ci4wLlGocfT8FxZzwMm2yKO2bbJB4EST7GJDLvsaty9oqw/UIs4fhmcaXocUynDDmO1j56Up8INT435LhGkdCFxmFoJW40PtTxqQ2SLwitxPgrrXfQk4fAUnoyRgdhXgOo2/n3QZnnT4X5ETi8YnCQhGB/ko6gwpgPaQcg4gqgj1fnwKQvXgQifkfzns8Ycz+FvAvIXKZ2LlaIIm9qngYW2jyuMuo5IQl4aCga0VfkzK2IoOaH82KTaG9gvlTv4wRnhIYuEhCtoVbFJ5f0DKt/8AAGrR6hehgtHgiDmIIX6SiULxehW5TTLfnYejvl835Liic5QsCT/Jvo+5A6x+DTK5fsqrwhP8j4IQxQrGPDSn1cniEkJZFHk6MnC/RY9M9ggXmQFQoxKuVEcGo0Z68878Vyue+FyjTNO30hMkbV3/AGDP/Jf7FYzL/sE+MuAaNyijgeIxiIMb6GHNT0B7zQ4jExlTGTvild2/0ImVsyVfFTMr/wCkIL6mNE+L5QuKIQk24ssy+M2Sr9jsSoSHfzjXgUk++Q51ovoppM+RBD2L2IXse3k/yU0Pyk6WzGd92mw+Uc0zgYacb5fQ5VPItCthLsRAculokpBqbOnkZWQT+xlG1VW0O94PKYivwxj+FLyvgibRG28mdJU74bpBNIS0K9RgrDT8DK47NCK8WJ9hMx1ur7ERFUooLE0dUBU1T9swGyYQsicJxPOdD9rg8GXbeP2Rgwh79ZMvL9Ck6pk5vxReEK/8g4OhH5RwEoQKIpKZW8B7C1Ux1IbscSwhKhiIuMCBFCaRWakJh0kvD4R2xNCoXFD8tnYzpC0p2EIEr3+WMIobXlGqG/HwXwQuGrNtBUtBC4iJwnkXGS+IcZkSj5POScZDwWxUDDjrQqdj1QNQoMQhvKSinvL2gssx9FAou5t9keVu/CPIWaNb4sGafMPsGPIx5H3Cii/4QX/Bn/jmU42M+gfIxBLBr2CQIeZmIhjWnkr0wJ+F5GrNK3sS4zyTMr7NDE0fpE2kuIhZ2KuJritpDDB0T1hsUKWJeD/yj/yi/NcIzl4RJXlJifKXKEhnmhEehLPljRILLNIN959s8ZiazfTK7G9LdM+zOUwN9oyX0JA82jRn+f5DQSLIqqPil4TExMXKJG8Ccr/h5QhnZoWjrNaw7FOr+Rj5R6q9wFhvMbGaDGlt1DpWKn9jmLXoSwz+hs1LwxqsDcy/uG2g8X80xPhcNxmO1+jBt5PoeD4RcnQtjDk7mKR5eya4Pf0oUuSjIIUJbp5NyNJijcd5ZGBJoRD55ajXGkQVohv4CEIQnN2I37EKuouinioi49gi2BwNRlFVyVn+C5MTIWz8Fzxc8MzQYSJjahJSNMEqj0hnh1Mnt5H4IrZGfli18VwhCEyyD0dno/Agb/oTOCSBgaZExjHkbryI/IeTRseWdi5YTHqPsbGEP0WGRVRMG6D268BKlbP0GMvCtpic01pBImDwL5oQhDg2ArU6oW3o0s24NBLkjBjEGhKKNIU0GOdViQeBIqavYaEofYgMMOmRaMf9qWxYtfsyzWRDBH+3pmFrkjx6HBOH6Fr5rhHQ2mPVIbtZQyve2MRMWgoaopK9iwhiX/UPC/QmPUMYk3TtlG9i4/qEkmSe0h7R5sUTcCEdwKpWNB1Jp6B/sXgmIMyXZp8F8EIaP8KRyTUKazK0hdxQhgpS/E2CLCPJmsjB6JOLavLKq4eC4Iz9jKELNJE2gwjCWB+kIX3LH0YRNpvtZmj5+MvghDRhrwGLMrBG/QqwmwsTfoxwzgJ9h7xwyQ14Zg5Q6LKPKyLV9oajZhTTcREOlEywlXiDLvYX26zyg1E6qxoxy8j4KXm8oQ7TCG2eI0PzWD9CcXVR0ZN+YSkTUFqNZ4G/rPoizdHNBsxLEGopsu5gPDh9axhKZvwYg+9qGANw8FHldGzlJv4oXCFbBG0Qlt1EoOkX4oSTyOkkt0dBCzBGE2I0iEDC4jeDEeh6cxkRKIcwi0zUlUEpb2/QtK6SGAY9sEBTNuoL6Mywmj+mNB74HwTLwhCEMsR/hhG77ItR0TmlN7R8JgDFI356/GxhhkkeHRmQGt6ZSd1wfXCjJ+1ByQ9ThrsPP0FuUxTE+rQw/BLn3/DEISY0jTLq6EETylR9HIjGShSCYzMKMGY+BaIF8FLM5uVCSMUl4YyHabH6YuetBqtZn7HIwYU8kN8Byi+KEIS/QRHRU7DGMyePTEi9Bx0ejLgpYUmBB9NSMpmZ64NBK2SUt01tMtbaMNPp/ZlU5RNZh+5B9ikSUlhE37Hvg2LlcIQj8CNZtHtDpEZtiv8AcUZv2UA3RoEzGnZeRqurouv2LELgXAw2OFWFLK8vgwGe717E4WmaZdsYWjesPZoxf8lmkR2LwuUIQuFN36KvJmoiFVvoTrmf8C0pP2MbNRymWadmJo8ZU0Nv0+C5HG5+Sibh4QC2xyyHXgQ1AlaZpA1O7jiRIY3NPihC5esNN6I45ioTbYsXrjcXwGLLGHeCFTMy37IjWj44s3BeA20HaiU2kpexIxJJTQ24MILhI+ULi8M2oJ6H1JQsV7cFnNwtmnAiYUSNvvN+FsGAyB7xtxZc8tCj54GbXkaJfKQuWjs0ZIQO9H5uC2Q6XM2TrgUeCEWCz5ZI2WPLF4Y2Ob0DZ6MZKPQmTIISfMQuEubOhJEbGxnIbm2MssqiTdoNkyNhvA0VGTyUNRvb4ngKRtsuSfBbExwouKyiT2jMcZoYqJXXwLIiWBPROUJ8Sj0jQiV5YmdQYn1DTNyMw9DZG8DqGJwNMItElSKOiyqooXJoNkZjDWNYTYsyAaheL4Wx9ct5aCbjV9DC037Qlv0j4XDtmO2tM3LbEUWyjVjhv/0SlI2MIZY2TloeQ1/0LlwtMzwlYiwO/MQGghhsuBExM1BRyJVjQ0fFB8IWhJXIw6H/AGRNy/UQf35mLLfjs6X8s6zPkdXUJckMZROMMbC+xaxQeuNUMlUPJJIT0KYGuSLUuFapIi+jpkXgiCjpvQokQmeKCcLUXkYt8MdnXCbVmHsOxxEDDgXRvI0wKsfh3OiuJsRVfjYyXgaEtiSCbyeR3IvEND6sYFybH9sSHvjxwxM7OkPe8EiKMm4KKNGKKsny3xsginyRNg7mx2hd5NpDqfBjS2Qg+3w/sTJod26G4rcCp9IJl2KhU/JnQb9oirIbETQehtLZ4OW+ALVSUguGKKIK7DEWscEyFMc7ZgOoiJezDwCHdI9sLNFpUSstRGeKpkSryTvtD2MxsJjwJfJlpCEA7lp5LT0JSaTLMaG6J2YmQoZWivkIYB2dcpCl3wNFIxryF2me/Z2SHSvR+PEH4EbQo1bDTxHR/l/1CdtbmYzdzH+SMzyP3ekO0xDnJkw3hkqIJ2RJGxbwH/DBrbLicou76QWhxO2PoDyxhMYwafZRYJWjST0NBnRSKL+ShK4peAluBIuDLHw0fPL4K6jmxWwn5ZuNdrfwjt31aHVBI/I9ODQm5DaTRtbFWx9I0fwAGC8Yeg+1OawRqYNoKb57IYaMyVu30jdt4HShRLQs7QQw1OoUZ9ssCRsM0kMDErTLGyMRMJ6zFSv8JxBomkvAh+9GRadejsyIFhU1pjLsY0uCTK+fbILLbAxmfQfTG/WKUehDTKQf7GpXhQO4mov2efJQynkBnVJ3+strbghs2NtOhio0i2xom8gUGKaWM1aN8fX/APg0qS+PwJgZ2O6Y61GR2JUWRWuhIGhEYjNEltiXtRQLHNZj6SY2h+yk7EmtdJlRxQ7huube2KK2yWMjenSdmeh+I9Efanb7sEyFbaGdQJPQoeIgqbMUYtu8YKs28LBiWIm/KHrZ/XNMPo/5HTXtRIUrugl79n9Eh1BLYZmD3+VEPb6ajPN4v4QhEX5AK1auaWlFLD8E/wBmA2z8xf5LKjv2Hw/0wd9E3wiVCa+0Gp539kx4Vlq9ehYvbf8AQ096f5G4rwmpPMVl7DKoSGt6HNmbKkIhWNVgybcafoebatr8FvBBf1P/ACyJc/SPI5KrP7i6meinRog//pRdbaK0josoLvDE45MqfJaXXCIX6tKS6V4ZlGwGrbHQ9I/bJlu34Qwo2h70VTlLo8OuXx/k4ZBGQGZ5f2JPdS9M7wf7QgvynKnGXmDIjUNZy69j+xyGwUNgJxYlWvFMbVeE/wCx7NdVYGl1yNjz4yiNYW8UV4IZOV0kUSMYnhqqgjH2F2xzUSG/2PUq0o/Bj/1bJoxfYwuNonvyKwqFFfuKMuKdBS7r8IfUn+hmzFI9Cb1/zgsWk1H2Oll4e/I7UcubYfWRT0STX9keKhjIWq7++izThX1iwkK539FPGERxhUn7Jb21NfTQ+X/vI2glrTpic2orwqz8H1yt0k68TemjLUX3BkB3ROli+nvgJC7SJwgqqxRE9DZE+lYiEP8AkOR5NnktwUm7Vh8C5tStqHuKDQwzkojexVFjip6PVnUOta/kGXD1htRI8Tgt7FGWwGGMRoFNw9M09DGdpFuzaLCswoxYYJAr6J1TEBRq2jvByMc65vLY9RmGXuQ7Ns7NuEmRj5iKjNTBw7lTJR4A9l5BYl2J0xtBtRyY8LBWzUlqGMYMyFt0qjceBZ+A56Q2dl43/9oADAMBAAIAAwAAABCIpT2M9t/RIj2z/NgfG2Zoul3Zcmi3gjqpki12n3zXNXdddeOGpijdvFzahMngetC4oX1Kk/m1Ddwh4YqxX1yv4dkDijaDbSelOjgbTZqn57NXq+Z28SXX5J7XoOdtpZHq1gV5UTV4x/bg1rZ6FKOPnnavQ/k9lqTmRBSz7Y8KVEhSFfYeg7kdV6w6kq8/A/qQ2/SF7hXxPhQ40pxbO5iX3iPODHX3U4awMtvBbwP7GmFC4Nrd+StFX/RCzs7ilxeFzczjJCbgcH0whT3Fc6lujrd3zfPSw+41eosCEWLMKxsJ2qkiyb+n5P6U5+1RZ9Vj3zOlP+mlodOGbKbVerb6XLehmFp2FgOtokmSNji643rbGa85j57k5i9n9I9y+q3Qm4Aoljp/unI2edxuh3Uns643xeYjVXQ66u7guM7VdX2F7YuZnciULCvip/4g9/C2K8vQTVBaoUhUvLSTs4KwfE/L2wnBnTIcXwrawJ7wDZGvTkNu2mTFlDzQDTgfACfrd/BhnBwTZ/Ahw2w1QEf1d8SJiCijGE7BhQ2UvpXMt3URNTko+Eznhmf35L175PPX/p1tVr8d+MtHQz5hTc9wcyBULW5UkcF/VXdxbL7mr87iRGnd1mpi/MM2OX1YbOTOwon93LcfwbiwpbAv2AmYwE29JzXLn4o4/hwZFQjGf4xNpIC5dZtALRG4xQgGzvi/HjHNN1mQXhaROVwgK+zN2Ohhl8rr0X//xAAhEQEBAQADAAMBAAMBAAAAAAABABEQITFBUWEgcYGx8P/aAAgBAwEBPxAPqD9R9UHfIP1fhfhA+o+iPqj6o+q/K/K/K/K/C/C/C/C/LgCCIFkEEQII4AlJEh5n3/7uENJL0tw/XgQgQQWWQQWRAjkOQ0bMxsyR1GhcWRAgsg4CCCCCIssssssukkFkHBwQQXhbANZ74l7gLrh7g2yyyyzgHGcZwEIJYmbrojKZhV8SNihxlkFkWc5BESDtjPlNCHpNcmxhI132e8ZZyece85BwKS6j5PtpAsHqUMQSzqcumBduy3jYILOMiCC/DYFN+YOTG3Vlk5AjPNtEEF0jLkPOSCCCI7/vfCLo3IJldMJUXYzwMDvG3jjI4Ii1UJ2sDpOdEp6RMGC7eWepMlti14PONiIjqJlHt0ydkPyWFHTpuvTqWdy12eMD9ttjz+AxHDNjUu7o9WmYg6PJ4yD6hlh65zvgRwQHcp9n2wPvADq7mTmwW3eO55HBERKF1ZPpev8AsXaxmluwGndg3V2sWjCvEbfDRkJvAw8EMGy2D1++Ctyjs/jMMLWZ6lGhkzbt0C8V6kJpDDbDDPje2Xedn3bW243s7bciLDzsLByDH72oPk28ZdLeuVw29j3kd7okCOGSejO6SyyCyf47Swj8zHSxHlvCWxPcbIOGPV6/h5xqJsyxMtI/jMEdMmNkRw8HA5JWxLudW2p8jjcT5l3glsfeGEL5jnc6bdgN1I8/h7mTI52euRZbRgnoyOHYh6jyOHyeuSfONjh5jqPbTgNs+4jgvFkoR/gWZdvLOoY8dup266IjhdWjls9lyu4RNkXYsmH3M7vEj2OoeXo24/t7ZJnJMRK0NhjwSP5N5YZknX8vd0Re5OiUZZHAXmzZihPzBazEmcMHuQ9kds+cJOPmSbDOPUQzLk+OoRL3EnzZWXTjR3hu92BGJHAWw1hYmebiy22Bf4VJs/K174GfIS9x15e2Tx/h7g6jdWW06T3PvviA8Jl3nS0tt/gVrKN2A09XyUJ2R5LXeRiAjqydnzKjyfHOQ43rI/Z4ATvF0Ebdl1HshDO2pd4l33Pgl8ceLzr+B6k1y+EsakgwR1B33QTKPvWZJvIWWWQZwk6sHbSYW63/xAAnEQEBAQACAgEDBAIDAAAAAAABABEQITFBIFFhkTBxgcGhsdHw8f/aAAgBAgEBPxBbbW1u7bW1tbVra2traxrxa2ttts/qbbPZksFlsWki39TbbbZAYzMbNn7R+myc7bb+g8NvwaAPMCeJeC/rMeb70nTxC9zglXXG8bbbxkTw8bZLTrggM3svNTJkgk6+O/F+AbEPvCVR9kej92njQlyJbbb8N4JlseziOzyIdJdIO7NrDDZEKWzl+Dy3hYDWLqO23Rq6x6jGJa8PV5/DJ4Z4bsSBk83hw7MlGrTu39I8N4EedbJ5tuQvu7IgOwcM9eH5MzNoJfuA7soO7NgZ5Yo78/HLCWQamJps1dmemWNnA62f0CEvFk2LmepCQnq1R6i3aB0nvYZ1MGNg85NnCLC17nruCJkL97uPKA8SdQjwNscbhttLFpKQ6R1bwknUGcep6u1kOT3ZWJnn/fi++fCRLyRDZOJSou0nXzZw8ZUIC223jfiId8n3vKSzhlt1Mm23h7jnJODO+NHHGbJm0czq3l+KcCzWDi80OEssqepg4bT5P0WdcPCHbk8HNQzerZvLeWGb3PDg7vLhvdky29y+Tx6s46T3j8uG98N4tn5MMd8MBauD5mY7buXyBl74ZZPSTsXQXms+J8wxmZwF+1Fk/B5eK7y8YSnfCDjMyg+kcES/B+PcbWGkIclx50kTwkwDxNiQH4HBwuLTDJcLwkBg/clujq8HsTbbwsI6LE6tk2b3OPdZxq+dBBhP3neYRiOsQneQE65By1aVwFrhKYXfHfmSAsPo/ZsKIO8B8HYQpgTCNSPiF8QjTSRQHPONqzZZQNbGALuDR9wbOF28ttv1vdhj2e/yWIOej+J1vpX+c/5jZHT278fS3g7dH0I+lYR9HXmCf2liPZNjAegv426FjGv5hs/c/H/fMPgAV+794HdUeogeeMwoM6V/wSV/yfuwB6pepkPO5+IFSuD/AGi6vfAreG4/4uqkhvGav4mY+on8ZLI+Tr97786XevPb837RxsFP03+G6kd5/uYp6zH+7ZOkcu5+q8J5+uv+iH5YBKl0gu/+M9Az+tpPycfhJEAVz6y3cW1zWnru+xmXWm47dBhKfC9QXu+6TH0GfxOwYP06jQb7bCDwON9/3ILVE8JY6nrO/wDe2JdN2QwdxE+t/8QAJxABAAICAgICAgIDAQEAAAAAAQARITFBURBhcYGRobHB0eHw8SD/2gAIAQEAAT8QHqBgOpTqB6JTqUgVqU6lepXonqJ6ieglOpTogb1A9ED1K9QPRK9Er0QPRPUT0EB0T1EBepTonxIG9Ep0SnREdEp0QNaIi9Er0SvRK9SvRAqG5WIECVKgY8HipUqUQIEqB4CVAgHMqVKlSowWlKCwvIywwMRKlXuBmailx4VBPESGYHgEDxUqEqVK81KlSoGJUCGIEqVKlSoMXK9S1DDifDIrzHjKQqDiVM0bqUBQTOPSBWCJAgSpUCBKlQlSpXlUCVAx4JUqBiVAgRgYqaREJshNV9rUdCULKbuPIYmyesKrFSnqDYgK5hlE3UCVKgQIFSoEqVKleKlQIeKgSoHgLypWZUqVULZ8DFyTiNNQh7lXcrEoxODRHqSUWMotP1AIEqBKhKgSoEqVElSq8KlQJVwQC5lGkNeAT4SsysSiKuX4jWWEswwmFQoOLzB5mH9QrfAVMolQMSoEqBKgQ8AeCZ8NwJUqGGBcqGUDE5qB4FIZ8CEgRq1BqCVGzib3MVzK2yrxUcIqbIYQIFeKuVDhCkqdvFZiTJDKVAuMCCB34CNpWZUIqoFQrU2RAEqpWYFxxgLSNGbI61AolCwLlYgSoGJXMCBmVnxWYQlQtBTmVmOEt4DwgzXR8zZL9ES0D7gL0etQyF2umAJfgOYF5R6gQuIOhiYqUBHPEDqHVRGVackqGHgdowZQynw8DBhMiC6hXcAZ08SnHgxVxFC5TiMHG+4whjw8xkYuT/qMNg4xK6lNS1ILz/maim1slQG4mYZTAYmCZ81AGqtjxiYldQI0YLMErwCBKxKohvHgMQCsyiFOIEfSViZgSlII3HBgS9uQAX5q6wQoqeN1FQE5k77IZH4iVKGCkDrs6hhQMxMTIhpNIkyIZcRspUSpk4gvcswxKgQIDKpQMQMwylTaU4hwym5wuUJkSs6gVGWb2gUDwfywhi4gx7E0JKmB+ExgRjU/Go4HRz3MA3wSGI+ddwcTbI5NM9ZVGpbIxNaZmnqX7fA0RfHsIRqBVoQIVWwUYgazBGDiJKs9xqmIOTEDOoly2UCFG4WX46ikXv1CNMWF1KMwtRgW9qTOoR03GhtizJMoAxW4S6ikG7/XslQbM9pWNRgZuFWjma2Yi8NQRZZzBNTdYCeGK8VKxNINeFbqoIqZGSEvMDhKyysQKcyipZkCO7JSy2n5qWOFkAzICCOquqgNaNFv2Qq7r1pDo0TYF+sy8p0qYiFYI4WDfzGOlgClbZ2QodDmWEKSiK+SFjiqjXCNkHEo0ZlromWkfXghAuAJiLM2l3FUFWDUbWDlElYWDLrdouiVM1UF1UofwKqt1knA6317oP1DImQuhcQL6p2L7+I0s0F9p1F4syNLxKFIVN6+YyaNlnuOJ4xHcuKAMsZt6wdTQgY2NygmKyU6gj8ygLg140QYbiZ8BcqpzNLlXBgg2zTOal4ja9mpmx/JW7YRE2J/IwHHXNbX3G+qlfwTMWMbtHDKJ999EznDo0RIUOvpqEeBo+wiZb2oqtNqjvwSqRpXiEGNQwJT8KYUs9KgACaRuaGYmAQDTNQXMarVxNuCE0Zp4VKgZiTmXiCxI5RLzAhJYieRI97mYq9kHR8S7g9RSU9HzGB2hKT4hYvj5Jy1uM6h3n7KZeLDhle1Av5jXRZVPzcoN4ZgBDawd1qKOfHO78X7ljSyzIOuGHFJGv6SwxExcH1FMHEDEsmfG4FQeRlwFVzPhARCXMIGuPF1zBWiEAXueAgnl03/AFcIRZBVs7lYOWVVdscheT2nbH3EuVGkQPqoEDlJW/UsG6ZjDFNsX8R1SZIlT9+VGLLjlBLIi4LW51KZSsxALQZhj4V4MQYowS5c2zKLlZhgQXC1MoMzCGyCQPl/2lCl2hMvbAjRUWifcuKR0GYPMKM7cyqYllvUasmUFwtuA6O4FU1/YZXIqE4ODiMvL4AbUMQHgzFWMfHMIGxw81ALIMC6nRhnGiBKxHEu6iEqBmBXjqbSuEMNT5XAhVwxKX2Fq9Yi4vWJvqFcnqC1D7RiBs+GcY8kkgaIIxcLQQJNroGi26/UbxZIYL3UM8BdOkKfFYdOMfuGWoR6NVLVm9SoxieCKYS77GHMa4l5l3pHUTG/BF+RbcCME5hUHFQa+JdQzmC4YagXDOir/UGUOef7hC1HWD/ED1AdFT0jmNbZPBG0X7cQKdOv8kxg5jd1/MrkzCv1CK1P2EMDha9zUcMjNVarEYmIxIkREgcg7qFMBggjMx1AvfmrhY+onUGhgSpUCCJepzUFkqoUxFI4sbIEnsrqrO8rLGJeM22CKCBXvJLSQ0BA8D5cIx9+uf1GyJMmahSaXXSuSCLlvcIJP/g+EKS25/ESNTEURs6nKZlMolm5vOo3CDHVwYuC1LYIwwbhVQwRYz1NWXUolJS8swb01VxTgF7iEA2qIqDQbfwRan5hZ9xVcnFi43C9nKXPrRr6g3X3LeohB9IxCkai7lRzErxUukwmYLZQalVKu+oS8+F3Ai1BvweDCoB+ZggI9w/iFXUGsEWZjkPIbXctj9UbJZBLPuZlqubjsqL5VogowXueZhFA0QZl2DokyHcrcQlKc4GEqQsjJ+IwrsWvSpsAVV5YxhKXspa3Xii8kdxjQ78JAxBYwMHHhWsSmhiol3xLVUtoOZf2luImG7hmZx+zqMaPyajiQox7mEwe0ssblo2XNgiXx/bP4m6dAP8A6kMKJFKbNxC0fUdlCLB5ix7IOCMZraWvfl8MILGVgT1A8EbREbhmBbEdYl9y7JasS1zBhrMpdXqCJLavEydwEhhD3LQzDGolX4DEpg9U/mbQndSwoSH1GYudkopl4VlczkW7JdCZlHb7Sx1FVPRjGGTGaf8AwxjDrAfyjicRjTMJNRINYuIziYr3EaBcr2lCYCCzFTMkUcsKXUJnSFCFUAVcAQkeZRwO/cdmrNRLBnqpRhjlcQ8rUGgHk4s6Zfla2NJkRhPCRHHELBbD8TEly/DHwutIIy3NgxwxYmZqO7hG4uXcLYNQSTeUnEBqHdq+F73OYu6jpgdWAAXBNCYODHDIR9tpcoNwL/pA8KXSuOAXCQ3nc1okfZAQhsZqlxVoOJQSvDE8G4W6sxPBsge47q42QyjvEbgncJ9+N0yzEwdQRhnmK3LEKSkR2igdrLgC4uB6HMBRR3FV0eolMZq0WH+ZfRd6irwYg61GxwA5hYCJl0wJPuUJh6DQECPmMdOj1JmK1mwZjoCRLNp2ISQupm+A+WIpUpIpQikSklgLiPUSo4bmcQS4bjCYMsZjqMuKQczMBUWYEGbajVgOVKDtZkjzcyenXUr1HnCv3w+oupwNapmFZOVUJTuWm0hhapSJWSUaRxNEs9I5wlgxCuRl2/zEC9BVGojeiK22WXQKzBkmSlVBqK4gAT+K1/cRBTgxwjJgU37hbMaXpORhUTWJ4WktpIR1B4iqp0y7IszJl0QFQMAsNgpoIUZnhMyuaDnON2UwjzFEF6qGnUsqBssf7lIVtBQIUiVxFjUW8DsYhAbvHwfcOfiBy+AOWWIg4CXa/wCIwhcOLwoZjUIpAE3b7lajBiqudA7gUEvBw/8AZaTSLMRKmhbJcIIgWrhMMNC57zaIKai74tmoeJwDYdfEWKaUVxwPw9ReomvFwxG24YVBLmKsmRcCcwcUQa8srwEeDCzmuElgPkjkhXxL13HUNpJOCMw9ErImQDKe1KYGr0Cs36mCcmwPTtmKal2B7f1KvPA1RKMLO2JaKxtGaj1XbouK1eJXRLjOM/EaYhAvNLAbc52RUzYN8p+pesDmHwAYXdRq7DZmxez09kIcOxIp8OJpNwYMI51l5izKlchfEF8ViELMMv1shpQpi0i5bw4l7MAkQQVZ2VVD37al0w8O/RwzEiih1Q/ywnLcpEF3Cl4GQbrceW4iKBF4NERdXUXNXK7yID9xWMr3xxHbAudkK/cqRMPePbA9YG6uu64gFqyZlOfiFQSmJ31sS6+p+Vkp/EZUrwDMqpePDebYG9gB7WZkwn4FeCmE4izggxsZaeIl5g1tqLdW7fgyxFtsStHq9QMnKt9xbUW7YFwQXexqBeOEG3TBu27bcHlY1X1B7kg9p/qDFmFf4Ri+0FE6l44QJ57dbxByk0Jle+j1FyBUL8R1GoIhmGmgY3WLIDAhU3Y1Ehh/9+YG84+v9of9T+5/3P8AM6/+nzCzP/T5gDKfX/MKZX6wbf6sPa/CIh9EilhYPJXzMDPuXRAzcSdJZELMEexjE3mtgRaiq/MqdahiqbTH+KKXRg/ceJvWT7f8YjhREqpD5iRgUFU+5RDMlBH5RgFXcBTnnBRdGd0Mh6lVoMVRArB2CaLtCGP+uxs/rx43Lg1BIJCBKXCptKROLInPTW5hG4lXAxOZVmXvGIt0Tcqz8IYviD83/UFJ+CBVi2NUxPEapBTqtwScm65lMqDB3ASJDTCGxgPwnFoqt8IxUZ2tj8mtFMqylgvB/vK9VOGZZUuzE2iR8AzB5FQQgzadBij4hkWKh9ov+YUpBgsmgTAhA0jdRiVEyi+zqHd9Q3xrfw/9ixM0Jg1KJTCoMofX3jmAxBQ909vMcgEGozZsl5BojzYf6hYxFHoyguVwuEwxwLJcNqobEmHIYvYlacJG6BIx1LhLgvgzQYoM9eER15MtwNq+eH+plGxLxDMUNMWDtKS/UvjU4gFV51Em7VMkvXT5zHKZZSl58AJ21EiXmW4ZgDmkVuKQlC/csSFisfiGCupMeLf6QhvEbDfPdcrNeDUQQ9wyXG5cupcuD4KLwCqq1EBnU80FmPTkiv8AAPdSgUbl1KbRqCAANsXU0R7caXKAzYiDI7GDCbO5lo2n4E0EAu4wW5czeYn8GG7ES3UNPqNuAFt0REVXAYAlUTUqvOyYvolJ5dlg9iGgYuIZaR09liGEPN4igxeCmCa1DaVyw2DzDIiALvUa8JP8SpyYXLmancLJKhe4bJqDwy9BAuN3wzAKdyiHSpB/COy4kWiVkG4GSYxikfiKAS8GLeIfIg4DcWVFC5AZjbO9gtgIFA064JbB2k4v3MIqFbNFmsfPMIf/AAP0gXfEsw8QHmlz0wxW8j9s2moqswFQfDaVoggbHE7kcEABQcSlL0QavqG0diOJWIgJPzHKtLQSFzlChf1F114BLmAluiVN0thVzf6/0lHSc/ukIiFs6TNGY124oG/S9MSUfb2vb/CBXVU5XScTmjFzBhuEJSEUHaZwvMtXqVWLquycKW/jUKL7g2vUIBzFsWC20t0znSwQzDBCh7lt2b/xHR6Ezs1HiLG5aquAanfiVMjemDFtFUHeVpxAg/HKQugdRGCADlg0Mi3biBkpWnGVhIryDXd9wAZieyKZZQUB9R3DLPC8EIvD6nGsmllmTiF21CIU/uBH+IrT3GWNRbYpTmHeVRVE9KOIuOY2/E9OH+o5Ll4gJV1NqK7TfOJQcuAVQW33BWy7iVsyJamZ6icZ4KggtVjRRkPucfyg8vcoYY3Rgro34lewMzoWWuEA2P8AxA8UI/mPC9xgy4swcQYReNsjE0JlfUzyU8rl+mUJ4KswR5j5NsPgDEsjmICHTFsfKV3XEexhIJ1knAO4FLxakXOV0RVyItJKCIiJdENlsvL3iWIS5CsVlQ4uiXX0UttiDdNv0jMb/NsMfHzkwgFnlaI7LIE+RmLfgQOYMMIQmEcYw1K7C3xCu6MzO/ERX4v6TjxcI9nDKJ21CWA1mPEMMCTvljwHKwhQBypsldFVrtWWP4gkcy8qXV7lh04mXdBawpLYCcoyrKw+GIusx+B5qBbYcDubqq9mekRBpYFNpp/cY21EnzlmSilYcLEJbKe8jBvoCwE34xzCEPIbhjwyUiEtgZGYCSwVLU1QP3j+5RjlWytaWxxN0uMtecSsRG1m2I7g1DkuMK27f1DGMJXcZfN1GHbFn9rMy+WEafKfcoLNfgOmNXcMdKIJ+CZ2Zfpa39QeaIA6l5nDLXsLH3DkQwl9ELR+Dj/gii1Lr3f+YmdNI/cyy48gJcUUVvgy/mCJpvrkgZApp1EmmblFWVz7HEpvSgdWRjXVwUjCkfDluOBZRFx8eCFhjcKzaR/URr6mCdQAdEJPiJKpWHncdnolOaoYdwh9qfKoprND7las3ub2zJY4n00XLqVlFIYd52xq+grbuPnxQdjuVg4X/MfGYwOYQ3CEGPPgwdpcTJTZmF6yZ7HUYGwv49QMRhy/M0nAEylZWOs7CO6wKYb3qMrWgmOGB9Lfv/UfoIRE0Q4WeNaF6lRtQt4YzmpgqEoRyMcRSUHBGrDkgEmi0pTkheiK0tCmu3+JbMqvcJ3hftrH7jqXazORxigwYLUGLPjrKtStdTkYNMtWk+yOwK1oXzkavyRUB0sLbhcdlhAvcwvMujuChlcCWy4vAP5/uI7FxJS4sEi7yl1xNQ5jgGBH3LosanTzA2e/RylpaLc7qqZipVfeJQ1v+Woi57C8ZsIuD6zXEbBKUR3PvFmkrqHgDBDNJRkwGVQCu4ioGRlkbNdwAM+F9GZzcYA4qXGCNRCMYNM4zUv0lV2XUYy4p/EqJmI0tLrfD3X1LPWszeTOTbD0w1uTRP0S/AdnpIeGbIClwx12QjuFWhao9RG2oZhQZUEG4wR+IsQZcUzYPAcTmKAms59yxVy5lfX6SCtVrH2ma7ZU9bRR1M6gu7KLtRrimxDadsUO57tjou8E4QUPUpGNTLLJwDknzglwotxRq+eIl4JHcyz7kwwoslnxG6fPZLQWpYAOX34cpwHk1/8AOJeJY+Cos2dqi0g4XERNK88RmWo/xKMTbABcAixDshVUtE3BNdEBpqGF4KPqCrpnMan4lCmSTBMxqLrSIfhjc2MfZLEGYyl1GlLzAGGIcsx1cSZrgoJeZrdwcwb8eMNTCXiXVq1uCc2YEcErohshccyCBhaxcyZlI0RMV3c4mG28JKGEKeX/AIhvKUBcERAtLIWipk5mRGH1Kyw7PrZEBiEiWZUxbHZDTBmWsqGJcY9PUPCpjwQYZnrwmZdxxaQ5VJdNI/foBZCjRVx2oNEskwpudS5aypdC5UZyliwZUE3QwlyhCLdmVZht+Zbg1Lp5BXs1Glwh2XyQdSnOsS+FYG7SAHnAw3AhHNIL3Pr3jghGogEUbjGhDguKLD1Uv7iXYu1f1LU3AjxkUuAyagAjRIY6gp5Rl0WElBCK6U+Y0LeZnFBSbZl9iLoQH6h8C4q9ywW2KStcGUsR/EEHEZczVcCdyKyFPOExQl4udO5QLrBMx20I+drb1LltTLxoVQZV0RFsA9PUpRczkCMYSyiM4g0SjtRtqCtLczIobxl2lj3YFaDwEWhWiu5iE05mZP8AgcSwDiK0Zk2YyZmb+FeIEEHcQJ0lQ/ki4DdtfsM/qDwvyQKY6YOLnSncqLGGs5gF9IYJAYJjZfMDG1DFE6CJ5wgiIFyxuahTxDuMdREX1AfVDglKmhv+ZYLMFS5q49RxpKMeCUazAqowpczsOiClYkUWwQDQZlQ3IxRV2uEQPqGxmzE28bQB7TQFPUDCwgoYruyMDAANWfuaZt7KfiN8W9PwZeI3xTr4gsBXtZWKQBjq3GpOWJBMs1h5KhHUOfbOoYcKZPcuDHrMRWCx+IgW9BCwMbugldYg4PmG4RT6XE5IVjiJxHwqJZcQ1xepVbiTmOO4RkId3DK4lXtgCNBiJVg/ibJQxcxDsqAgbviJYxpgq0FuY5NEzbD6Yc22rnPBMl0wLXxAUGo+eqJD0gFcylqv9xWD6hn205w1FQUXZHQalUt6i479wdVmsyvxqPnQQRn6RmXYR7ZZFerEC7BrS6IubK+4Wbl1l8YCorWU7igKCYqB7JnN0pZkiZsD0Bl/iUo8/EVNxpF4e4KYGDSqqNMOyY7i0Uqy4pWZbdYjiG8z+OzPcMyqM/MyQGaX+yIRtsdF5itryLpfmCKpszC2XMqVbq6h7lR6lIEEMsIni0LMvEAntMR7zcNtKjrMxmVyzMqK4FRVc+Cc4WT1ACNJZBOiZZ3BmcySyURQ4kh0cy9iqUNnDEv6qaWMKG4uYAqejLEugNCGKhMzATSplIY2BvPM5C3B0RVClcMuGhg/EuoFwprvMSUApL4ggRtWpJd6xOZd+V2d9TKW2sxxgfmLsHmr1CNRshp+YA4iCAo1cCklpTbEt1EVrbOLoldm4ItRc0sDYU/U2I+GHEMyTc9P8xzCOWiBQRbLiXf3K+ADlBKqIeUqXmFwhylWIGrDzEVdq4l1WsYTGhjohjCCp1Km5jCerxKdpcQxcNJLjH8oR0zTB9Mcups3/VA3g27i8qOaPcAa4oeolUWi3R+IV7dTREsmCKC4I0ZFlUf2h+Y8EYkRgxDBFt22mfeZsTF8QRim7gSiU6j+LLWvcFR1LqOribm1mhHDm7XN4piCjK3M4hXEDhha34jxkaJp1AmcR2FWAeIWVjeyFn5agltamqjp1sIJSpGE60JVRj4VS0x7RdDRLq06OSu4ZMvRaWaRiq5nNRBQ8X4OX6lQtm+WhgdzC1lVwx3bJxHwM6CGD7Zj6OZSWFa7dMbVmLAjhvUzKj/sDEKhWCBQhzMtJBoTvJ6CBFbUwPa8RNoQvF31cUBVsGneOIAAMzxfMz+CAA9N6nXPjkfeozSaBavog5avQL0f5ieRYU420NZ+IviVl9vzEdMwiU2YYlBFpZR7j8Hau8viBHGbK+jf5gABBmw7IcqrXQgVrmYQFlVxXRBWLovTo2wtS1FTwOZk3f8AVGbJAVozBVpA8lLIFAwgM6D1Doa05Wz2w9SvtcP6WOgWFPC8EWWGhOB/v9Qq80ELV59YhSOlkOPfuJWE0C06CYKdmQHn0yr4cRmO31CZclGGn+UZw0LBSqEqIlGBdQzQ0H6fzGZwSrRvUWuRoUA18Q+9BFApx9xKqygtOgj52OhZh9MHLuF4jHtqAaJApZqnRX3Dq4FxX1u5unqjXRiAImPclVg4IJkwwq4N5BqCjGXEq1g9zbQe0cQ47Lq2KH8RdCjoPzKEesMBaAPuDdG037fcUQGCcLs/MCXVfGD+mNQMtyBq6XuOqxXNncvTAH0i2XAAeY6FZnI/+KKmc2nMWFZXpv7I15sB7bky7C1mjj9Z+5jofqIf7uGAw5FU5j3p7mHG4MKW9RMzmSSUtKJjLoQ2Jbzcvo0lTnatagPNWj+n9xWepcCWcB+8zJ2wR6PzP1P8Swppv9kPpDwMQv8AxMSCg1dKK+JX/ODzLX6WPJVP3dqevfxEwS8j8PMoojjVcnP6lOQNlJ1sZbOS6lOz1KUoLnWl/cVzOaCtdxigOEQv9R7a92tGvwv4ggGWb8l/1KvZKZRDhNWp/pDMpuPwIYx4t3Z1NIWe0qgme4GvD+JOZ/wXNf3AdV026O33KnWFw+sf1K6CNjlwfg/iC05M/OP7j/qBvVaI40ODUPF8Zg6vl+ZTmjFWnrbk/R+4DLdZ4P8ALKqzBuZya06KH+2PTwFgWbe27n6n+JZyIjuIOTPr2/LFygFOByPyS7AvRM1b+RhA9f6D/JjGNVn8L/XhcSlSLBpF7cRiNOLqi2OkwV+FRPNpGgTthCi+owKhR9QzOw0aKf1LPgfqrf6uaPT/AJQWtL1XFxg7FDlYtQIJGowfh3LQrUsViMzma9IxLUog5ashlYdjxHYmrAi9/MyPkcgnvmpc7WdFIhM0jK2uGlVf6oZJIHGGz5jIW3qiKJ4YijY3N5Z+CFWAwdm/3MmUyZtIxvWR/khGcz+3+5SOZQy0q41ALk7P9oxR+IoOalvIx6R/KUSFeAnZCQgpL+obQvE7R/iHd5SnoK/ucM2izLtUejh+0GmXgc52/iUew2Xsv+ohilQaWL/iFzAf2v8AiF82JhdmNi43yKjT5lqey/lBClyxYfsZQR1FdMUSwGz5P93EbzFqpiRu4CLiTes9x3zpFQ+P/fcupsmVamWnpGxhJqWaK4sfcY3Q8y8kdWdiOV3NMEToRliFkArJRVYI6iVlXll+y8wo0JC23P00yiFNmLWAfiWZwqyq+pmneolHm+48AlkXtcrQHY1BKoChsXIffEc4JK/k7lKIHAKu7v5hoq2N0dr3LQLm8UdeLwwU3D1WMzA/tlRYzexuDKudm+QHZLWuE4A2l+81CeUkNjSn9ypV+0PHGQgOcnNKxrI7vAxhDrDasti06hrdSQum8MLwOZomlDqw2fRBpHEIBu6JV7gj1a1Mc1mKTDNSgYFyxt3FAMYGqI2gtxbCC3piY8VL5cNpmctMoLhkjaYyUpgzVzU28Ve4uJTULA5mzMwwbmQxUazEwSyEVRLK1B9xmnOCp//Z";
+
+const FILMS = [
+  {
+    group:"Brand films and reels",
+    note:"Sunrise, inDrive, SVF and Mirchi Bangla",
+    items:[
+      { brand:"Sunrise", title:"Father's Day campaign", note:"Food memory angle. The product feels inevitable, not inserted.",   url:"https://www.instagram.com/reel/DK6TxWzIHO0/" },
+      { brand:"Sunrise", title:"World Spice Day",       note:"Occasion first, brand second. A reason to watch before the logo.", url:"https://www.instagram.com/reel/DKuQGj9tDTH/" },
+      { brand:"inDrive", title:"Brand reel",            note:"Scenario driven script built on a situation riders recognise.",    url:"https://www.instagram.com/reel/DJGVc9pS8-_/" },
+      { brand:"SVF",     title:"Short form sketch",     note:"Bengali cultural hooks and a punchline inside thirty seconds.",    url:"https://www.instagram.com/reel/CZhHeQbhP7k/" },
+      { brand:"SVF",     title:"Comedy sketch",         note:"Written for a feed, so the first two seconds carry the whole job.", url:"https://www.instagram.com/reel/CZzHSMehGK4/" },
+      /* This one sits with the reels so the row fills out. Its Instagram
+         embed loads unreliably, so it uses the still picture in MIRCHI_STILL
+         above and links out to the post instead. */
+      { brand:"Mirchi Bangla", title:"Sketch and social copy", note:"Station voice carried from the sketch into the caption.",
+        url:"https://www.instagram.com/reel/Ch9eB_hLu71/", noEmbed:true, img:MIRCHI_STILL }
+    ]
+  },
+  {
+    group:"Sketches for Mirchi Bangla",
+    note:"Written to sound like the station, not like a generic post",
+    items:[
+      { brand:"Mirchi Bangla", title:"Dating a #SundaySuspense Lover", sub:"feat Mirchi Somak and Mirchi Debi",
+        note:"Kolkata specific humour, set up and punchline kept tight.",
+        url:"https://youtu.be/01tAr2dbDag" },
+      { brand:"Mirchi Bangla", title:"Honest Bengali Couple", sub:"feat Mirchi Agni and Mirchi Debasmita",
+        note:"Everyday situation pushed just far enough to land as comedy.",
+        url:"https://youtu.be/a0cbPLrrVR4" }
+    ]
+  }
+];
+
+/* THE PHOTO WALL -----------------------------------------------------
+   Add a new picture by saving it in photos/ and copying one line.
+   Whatever sits inside <b></b> is shown upright, the rest stays italic.
+   -------------------------------------------------------------------- */
+const WALL = [
+  { src:"photos/mir.jpg",
+    caption:"<b>Mir Afsar Ali.</b> Up at his studio for a Goppo Mir-er Thek meeting, the show that put Sherlock Holmes in my hands in Bengali." },
+  { src:"photos/srijit.jpg",
+    caption:"<b>Srijit Mukherji</b>, during the post production of Dawshom Awbotar. I was interning at the studio, and asked him for a photograph and an autograph." },
+  { src:"photos/kaushik.jpg",
+    caption:"<b>Kaushik Ganguly</b> in the Mirchi Bangla on air studio, in to promote Lokkhi Chele." },
+  { src:"photos/anupam.jpg",
+    caption:"<b>Anupam Roy</b> at the Mirchi Music Awards Bangla, 2023. A proper fan moment. It started for me with Amake Amar Moto Thakte Dao, his debut playback song." },
+  { src:"photos/jeet.jpg",
+    caption:"<b>Jeet Ganguly</b>, same night, same red carpet." }
+];
+
+/* Two pictures that sit inside the About section */
+const ABOUT_SHOTS = [
+  { src:"photos/cu.jpg",
+    caption:"Dissertation submitted. Department of Economics, University of Calcutta." },
+  { src:"photos/bimstec.jpg",
+    caption:"BIMSTEC Business Conclave with the Indian Chamber of Commerce." }
+];
+
+const CHART = {
+  labels:["JAN","FEB","MAR","APR","MAY","JUN","JUL"],
+  values:[1872,2053,1995,1964,3605,8247,12415],
+  markerIndex:4,
+  markerText:"Content ownership begins"
+};
+
+const PROJECTS = [
+  { cat:"audio", tag:"Audio storytelling", title:"Sunday Suspense", role:"Research and adaptation, Mirchi Bangla (ENIL), 2021 to present",
+    line:"One of Bengali radio's most iconic fiction slots, with a loyal audience and a very specific editorial voice.",
+    points:[
+      "Read and shortlist Bengali literary works for format fit and audience appeal.",
+      "Handle narrative restructuring, dialogue pacing and tonal consistency, turning novels into production ready audio scripts.",
+      "Adapted works include Jutoy Rokter Dag from Samaresh Majumdar's Arjun Samagra, Mayakanan, and the Kakababu story Bijoynagarer Hire.",
+      "Adaptation is not translation. It is reconstruction. You have to know what the story is really about before you decide how to tell it on radio."
+    ]},
+  { cat:"audio", tag:"Audio storytelling", title:"Goppo Mir-er Thek", role:"Translation and literary adaptation",
+    line:"Sherlock Holmes into Bengali, keeping fidelity to Conan Doyle while sounding natural in another language.",
+    points:[
+      "Translated and adapted the original stories into Bengali audio scripts with plot integrity and character voice intact.",
+      "The Gloria Scott as a single episode, The Valley of Fear across two parts.",
+      "Multi part adaptation means building suspense across episodes while each instalment still satisfies on its own."
+    ]},
+  { cat:"audio", tag:"Audio storytelling", title:"Original fiction and direction", role:"Writer, curator, director, Spotify",
+    line:"Stories written from scratch for audio, plus episodes where I ran story selection and production oversight.",
+    points:[
+      "Two original stories built for the format rather than adapted into it.",
+      "Worked as content curator and director on audio story productions, responsible for editorial decisions and story selection."
+    ]},
+  { cat:"audio", tag:"Audio storytelling", title:"Pratilipi FM and Pocket FM", role:"Show writer, 2025",
+    line:"Localising fiction for an audio first platform. No visuals, no safety net, just the script.",
+    points:[
+      "Rewrote source material into colloquial Bengali that keeps the emotional rhythm of the original.",
+      "Restructured sentences for the ear, replaced idioms with spoken equivalents, timed pauses for effect."
+    ]},
+  { cat:"growth", tag:"Strategy and growth", title:"Insights.market", role:"Content owner, 2026 to present",
+    line:"Sole owner of every digital asset for a stock research product. Organic clicks went 6x in three months.",
+    points:[
+      "Took over all content in May 2026. Clicks moved from a flat 1,970 monthly average to 12,415 by July.",
+      "Impressions rose from roughly 254,000 to 606,000 across the same period.",
+      "30,467 generative AI impressions logged in July as the product began surfacing in AI search results.",
+      "Own SEO blogs, YouTube videos, Facebook and Instagram reels, thumbnail copy, ad copy, and the keyword research behind all of it."
+    ]},
+  { cat:"growth", tag:"Strategy and growth", title:"INVESMATE", role:"Promo and conversion scripts, 2026 to present",
+    line:"Awareness through to direct response for a stock market learning platform.",
+    points:[
+      "Promo scripts, conversion scripts and ad copy across the funnel.",
+      "Dialogue driven explainers for the flagship Power TI Masterclass, holding beginners through technical material without sounding like a pitch.",
+      "Weekly Bengali markets newsletter.",
+      "Every line cleared against SEBI limits on assured return and betting style language."
+    ]},
+  { cat:"growth", tag:"Strategy and growth", title:"Grown Up Tales", role:"Infotainment writer, 2024",
+    line:"Make finance content people actually want to watch. No jargon, no dead air, no assumed knowledge.",
+    points:[
+      "Wrote hook, narrative arc, punchline and close for reels on SIPs, mutual funds and economic news.",
+      "Optimised for watch time rather than views.",
+      "Designed and ran the content calendar solo, including posting, optimisation and cross platform adaptation."
+    ]},
+  { cat:"scripts", tag:"Brand and creator scripts", title:"Sunrise", role:"FMCG campaign scripts",
+    line:"Seasonal and occasion led spice campaigns that sell through emotion instead of specifications.",
+    points:[
+      "Father's Day film built on a food memory angle, linking the brand to a feeling rather than a feature.",
+      "World Spice Day content hooked on the occasion first and the brand second."
+    ]},
+  { cat:"scripts", tag:"Brand and creator scripts", title:"inDrive", role:"Brand reel, India social",
+    line:"Translating a mobility product's value proposition into a scenario the audience already recognises.",
+    points:[
+      "Scenario driven script instead of a feature list.",
+      "Show, do not tell. The situation carries the product."
+    ]},
+  { cat:"social", tag:"Social and entertainment", title:"Shree Venkatesh Films", role:"Content producer and social media manager, 2023",
+    line:"Social across a film and OTT slate at Eastern India's largest entertainment studio.",
+    points:[
+      "Managed channels across SVF's film and OTT properties, working with creative and production teams.",
+      "Wrote for the Aalo vertical, where promotional content had to read as editorial.",
+      "Scripted short comedic formats with Bengali cultural hooks and tight punchline timing.",
+      "Read audience metrics and fed them back into what got made next."
+    ]},
+  { cat:"social", tag:"Social and entertainment", title:"Mirchi Bangla Digital", role:"Creative writer, 2021 to present",
+    line:"Sketch scripts, campaign copy and the station's social presence.",
+    points:[
+      "Wrote sketch scripts and marketing copy in Mirchi Bangla's playful, Kolkata specific voice.",
+      "Platform voice consistency is the whole job. It has to sound like Mirchi, not like a generic post."
+    ]}
+];
+
+const TIMELINE = [
+  { when:"Apr 2026 to now", role:"Content strategist and writer, marketing", org:"Growmate AI Services, INVESMATE Group",
+    text:"Own the content strategy for Insights.market and everything published under it, SEO, YouTube, social and ad copy, plus promo and conversion scripts across the group's learning platform and its SEBI registered advisory brands." },
+  { when:"Jul to Dec 2025", role:"Show writer", org:"Pratilipi FM",
+    text:"Adapted and localised fiction into colloquial Bengali for audio." },
+  { when:"Jun to Oct 2024", role:"Content strategist and infotainment writer", org:"Grown Up Tales",
+    text:"Short form finance scripts, and the content strategy and calendar behind them, planned and run solo." },
+  { when:"Jul to Sep 2023", role:"Content producer, social media manager", org:"Shree Venkatesh Films",
+    text:"Social strategy and calendars across a film and OTT slate." },
+  { when:"Dec 2021 to now", role:"Creative writer, researcher, audio adapter", org:"Mirchi Bangla (ENIL)",
+    text:"Sunday Suspense research and adaptation, sketch scripts, and digital campaign copy." }
+];
+
+/* =====================================================================
+   END OF EDITABLE BLOCK
+   ===================================================================== */
+
+const $ = s => document.querySelector(s);
+const ICON = {
+  play:'<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>',
+  ig:'<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 3.06A6.74 6.74 0 1 0 18.74 12 6.74 6.74 0 0 0 12 5.26zm0 11.12A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.98-11.4a1.58 1.58 0 1 1-1.58-1.57 1.58 1.58 0 0 1 1.58 1.57z"/></svg>',
+  li:'<svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg>',
+  mail:'<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 4.8-8-4.8V6l8 4.8L20 6v2.2z"/></svg>',
+  phone:'<svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1z"/></svg>'
+};
+
+/* The photoFail, logoFail and thumbErr helpers are defined in <head>,
+   because inline onerror handlers can fire before this script runs. */
+
+/* ---------- platform helpers ---------- */
+function platformOf(url){
+  if(/youtu\.?be/.test(url)) return "youtube";
+  if(/spotify\.com/.test(url)) return "spotify";
+  if(/instagram\.com/.test(url)) return "instagram";
+  if(/pocketfm|pratilipi/.test(url)) return "pocketfm";
+  return "link";
+}
+const ytId = u => (u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/)||[])[1] || "";
+const spId = u => (u.match(/episode\/([A-Za-z0-9]+)/)||[])[1] || "";
+const igId = u => (u.match(/\/(?:reel|reels|p|tv)\/([A-Za-z0-9_-]+)/)||[])[1] || "";
+const CUE = { youtube:"Play the video", spotify:"Listen", instagram:"Watch the reel", pocketfm:"Open the app", link:"Open" };
+
+/* ---------- one card builder for every kind of link ---------- */
+function mediaCard(it){
+  const p = platformOf(it.url);
+  const lines = (it.lines||[]).filter(Boolean);
+  const foot = it.foot || CUE[p];
+
+  if(p === "spotify"){
+    return `
+      <div class="embed sp">
+        <div class="frame"><iframe loading="lazy"
+          src="https://open.spotify.com/embed/episode/${spId(it.url)}?theme=0"
+          title="${it.title}" allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+        <div class="tile-body">
+          <div class="tile-title${it.bn?" bn":""}">${it.title}</div>
+          ${lines.map(l=>`<div class="tile-by">${l}</div>`).join("")}
+          <div class="tile-foot"><a class="embed-link" href="${it.url}" target="_blank" rel="noopener">Open on Spotify</a></div>
+        </div>
+      </div>`;
+  }
+
+  if(p === "instagram" && REEL_MODE === "embed" && !it.noEmbed){
+    return `
+      <div class="embed ig">
+        <div class="frame"><iframe loading="lazy" scrolling="no"
+          src="https://www.instagram.com/reel/${igId(it.url)}/embed/"
+          title="${it.title}" allowtransparency="true"></iframe></div>
+        <div class="tile-body">
+          <div class="tile-title"><a href="${it.url}" target="_blank" rel="noopener">${it.title}</a></div>
+          ${lines.map(l=>`<div class="tile-by">${l}</div>`).join("")}
+        </div>
+      </div>`;
+  }
+
+  /* A reel that does not embed reliably, shown as its own still picture in
+     the same shell so it lines up with the embeds around it. */
+  if(p === "instagram" && it.noEmbed && it.img){
+    return `
+      <a class="embed ig still" href="${it.url}" target="_blank" rel="noopener">
+        <div class="frame"><img src="${it.img}" alt="" loading="lazy"><span class="play">${ICON.play}</span></div>
+        <div class="tile-body">
+          <div class="tile-title">${it.title}</div>
+          ${lines.map(l=>`<div class="tile-by">${l}</div>`).join("")}
+        </div>
+      </a>`;
+  }
+
+  const yt = p === "youtube" ? ytId(it.url) : "";
+  const img = it.img ? it.img : (yt ? `https://img.youtube.com/vi/${yt}/maxresdefault.jpg` : "");
+  const cover = `<div class="cover"><em class="${it.bn?"bn":""}">${it.coverText||it.title}</em></div>`;
+  const pic = img
+    ? `<img src="${img}" alt="" loading="lazy" data-next="${yt?`https://img.youtube.com/vi/${yt}/hqdefault.jpg`:""}" onerror="thumbErr(this)">`
+    : "";
+  return `
+    <a class="tile${it.portrait?" reel":""}" href="${it.url}" target="_blank" rel="noopener">
+      <div class="thumb">${cover}${pic}<span class="play">${ICON.play}</span></div>
+      <div class="tile-body">
+        <div class="tile-title${it.bn?" bn":""}">${it.title}</div>
+        ${lines.map(l=>`<div class="tile-by">${l}</div>`).join("")}
+        <div class="tile-foot"><span class="dotmark"></span>${foot}</div>
+      </div>
+    </a>`;
+}
+
+/* ---------- nav ---------- */
+(function nav(){
+  const n=$("#nav"), b=$("#burger");
+  b.addEventListener("click",()=>{
+    const o=n.classList.toggle("open");
+    b.setAttribute("aria-expanded",o);
+    b.setAttribute("aria-label",o?"Close menu":"Open menu");
+  });
+  $("#navlinks").addEventListener("click",e=>{
+    if(e.target.tagName==="A"){n.classList.remove("open");b.setAttribute("aria-expanded","false");}
+  });
+})();
+
+/* ---------- light and dark ----------
+   The theme is already set in <head> before paint. This only handles the
+   click, remembers the choice, and follows the system if nothing is saved. */
+(function theme(){
+  const root = document.documentElement,
+        btn  = $("#themetoggle"),
+        meta = document.querySelector('meta[name="theme-color"]'),
+        BAR  = { light:"#F5F3F8", dark:"#13101E" };
+  if(!btn) return;
+
+  function apply(t){
+    root.setAttribute("data-theme", t);
+    if(meta) meta.setAttribute("content", BAR[t]);
+    btn.setAttribute("aria-pressed", t === "dark");
+    btn.setAttribute("aria-label", t === "dark" ? "Switch to light mode" : "Switch to dark mode");
+  }
+  apply(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
+
+  btn.addEventListener("click", ()=>{
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    apply(next);
+    try{ localStorage.setItem("theme", next); }catch(e){}
+  });
+
+  try{
+    const mq = matchMedia("(prefers-color-scheme: dark)");
+    const follow = e => {
+      let saved = null;
+      try{ saved = localStorage.getItem("theme"); }catch(_){}
+      if(!saved) apply(e.matches ? "dark" : "light");
+    };
+    mq.addEventListener ? mq.addEventListener("change", follow) : mq.addListener(follow);
+  }catch(e){}
+})();
+
+/* ---------- brand logos, local files only ---------- */
+(function brands(){
+  const tile = b => `<div class="logo-tile"><img src="${b.file}" alt="${b.name}" loading="lazy" onerror="logoFail(this)"></div>`;
+  const once = BRANDS.map(tile).join("");
+  $("#logos").innerHTML = once + once;
+})();
+
+/* ---------- in page links scroll instead of navigating ---------- */
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]');
+  if(!a) return;
+  const t = document.querySelector(a.getAttribute("href"));
+  if(!t) return;
+  e.preventDefault();
+  t.scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+/* ---------- audio stories ---------- */
+$("#audiogroups").innerHTML = AUDIO.map(g=>`
+  <div class="sub-head"><h3>${g.group}</h3><span>${g.note}</span></div>
+  <div class="tiles">${g.items.map(it=>mediaCard({
+    title:it.title, bn:it.bn, img:it.img, url:it.url, lines:[it.sub,it.by]
+  })).join("")}</div>
+`).join("");
+
+/* ---------- finance and films ----------
+   Each group renders its landscape videos first, then its vertical reels,
+   so the two shapes never fight inside the same row. */
+function mediaGroups(groups, hostId, emptyNote){
+  const host = $(hostId); if(!host) return;
+  const card = (v, portrait) => mediaCard({
+    title:v.title, url:v.url, img:v.img, lines:[v.sub, v.note],
+    foot:v.brand, coverText:v.brand, portrait:portrait, noEmbed:v.noEmbed
+  });
+  host.innerHTML = groups.map(g=>{
+    const items = g.items || [];
+    const head = `<div class="sub-head"><h3>${g.group}</h3><span>${g.note||""}</span></div>`;
+    if(!items.length) return head + `<div class="empty-slot">${emptyNote}</div>`;
+    const wide = items.filter(v => platformOf(v.url) === "youtube");
+    const tall = items.filter(v => platformOf(v.url) !== "youtube");
+    const rowW = wide.length ? `<div class="tiles">${wide.map(v=>card(v,false)).join("")}</div>` : "";
+    const rowT = tall.length ? `<div class="reels">${tall.map(v=>card(v,true)).join("")}</div>`  : "";
+    return head + rowW + rowT;
+  }).join("");
+}
+mediaGroups(FINANCE, "#financegroups", "Links coming shortly.");
+mediaGroups(FILMS,   "#filmgroups",    "Links coming shortly.");
+
+/* ---------- photo wall ---------- */
+(function wall(){
+  const live = WALL.filter(p=>p.src);
+  const sec = $("#room");
+  if(!live.length){ sec.hidden = true; return; }
+  $("#wall").innerHTML = live.map(p=>`
+    <figure>
+      <img src="${p.src}" alt="" loading="lazy">
+      <figcaption>${p.caption}</figcaption>
+    </figure>`).join("");
+})();
+
+/* ---------- about shots ---------- */
+(function aboutShots(){
+  const live = ABOUT_SHOTS.filter(p=>p.src);
+  if(!live.length) return;
+  $("#aboutshots").innerHTML = live.map(p=>`
+    <figure>
+      <img src="${p.src}" alt="" loading="lazy">
+      <figcaption>${p.caption}</figcaption>
+    </figure>`).join("");
+})();
+
+/* ---------- hero buttons and contact ---------- */
+(function contact(){
+  $("#heroact").innerHTML =
+    `<a class="btn btn-solid" href="#audio">Hear the work</a>
+     <a class="btn" href="mailto:${ME.email}">${ICON.mail} Email me</a>`;
+
+  const L=[`<a class="btn btn-solid" href="mailto:${ME.email}">${ICON.mail} ${ME.email}</a>`,
+           `<a class="btn" href="tel:${ME.phone}">${ICON.phone} ${ME.phoneShow}</a>`];
+  if(ME.resume) L.push(`<a class="btn" href="${ME.resume}" download>Download CV</a>`);
+  $("#contactlinks").innerHTML = L.join("");
+
+  $("#socials").innerHTML = `
+    <a class="social" href="${ME.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">${ICON.li}</a>
+    <a class="social" href="${ME.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${ICON.ig}</a>
+    <a class="social" href="mailto:${ME.email}" aria-label="Email">${ICON.mail}</a>`;
+})();
+
+/* ---------- work cards ---------- */
+(function cards(){
+  const host=$("#cards");
+  host.innerHTML = PROJECTS.map((p,i)=>`
+    <button class="card" data-cat="${p.cat}" aria-expanded="false" aria-controls="d${i}">
+      <span class="card-tag">${p.tag}</span>
+      <h3>${p.title}</h3>
+      <span class="card-role">${p.role}</span>
+      <p class="card-line">${p.line}</p>
+      <div class="card-more" id="d${i}"><ul>${p.points.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+      <span class="card-cue">Detail</span>
+    </button>`).join("");
+  host.addEventListener("click",e=>{
+    const c=e.target.closest(".card"); if(!c) return;
+    c.setAttribute("aria-expanded", c.getAttribute("aria-expanded")==="true"?"false":"true");
+  });
+})();
+
+/* ---------- timeline ---------- */
+$("#timeline").innerHTML = TIMELINE.map(t=>`
+  <div class="tl-row">
+    <div class="tl-when">${t.when}</div>
+    <div class="tl-what"><h3>${t.role}</h3><div class="tl-org">${t.org}</div><p>${t.text}</p></div>
+  </div>`).join("");
+
+/* ---------- filters ---------- */
+document.querySelectorAll(".filter").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter").forEach(b=>b.setAttribute("aria-pressed","false"));
+    btn.setAttribute("aria-pressed","true");
+    const f=btn.dataset.f;
+    document.querySelectorAll(".card").forEach(c=>{
+      c.classList.toggle("is-hidden", f!=="all" && c.dataset.cat!==f);
+    });
+  });
+});
+
+/* ---------- chart, the one deliberate animation ---------- */
+(function drawChart(){
+  const svg=$("#chart"); if(!svg) return;
+  const W=860,H=340,L=52,R=22,T=34,B=42, iw=W-L-R, ih=H-T-B;
+  const max=Math.max(...CHART.values)*1.14;
+  const NS="http://www.w3.org/2000/svg";
+  const el=(n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const X=i=>L+(iw/(CHART.values.length-1))*i, Y=v=>T+ih-(v/max)*ih;
+  [0,.25,.5,.75,1].forEach(f=>{
+    const y=T+ih-f*ih;
+    svg.appendChild(el("line",{x1:L,y1:y,x2:W-R,y2:y,class:"grid-line"}));
+    const t=el("text",{x:L-10,y:y+3.5,class:"axis-txt","text-anchor":"end"});
+    t.textContent=Math.round(max*f/1000)+"k"; svg.appendChild(t);
+  });
+  CHART.labels.forEach((lb,i)=>{
+    const t=el("text",{x:X(i),y:H-16,class:"axis-txt","text-anchor":"middle"});
+    t.textContent=lb; svg.appendChild(t);
+  });
+  const mi=CHART.markerIndex;
+  svg.appendChild(el("line",{x1:X(mi),y1:T-8,x2:X(mi),y2:T+ih,class:"marker-line"}));
+  const mt=el("text",{x:X(mi)+8,y:T-12,class:"marker-txt"});
+  mt.textContent=CHART.markerText; svg.appendChild(mt);
+  const pts=CHART.values.map((v,i)=>[X(i),Y(v)]);
+  const d=pts.map((p,i)=>(i?"L":"M")+p[0]+" "+p[1]).join(" ");
+  svg.appendChild(el("path",{d:d+` L ${X(pts.length-1)} ${T+ih} L ${L} ${T+ih} Z`,class:"curve-fill"}));
+  const line=el("path",{d,class:"curve"}); svg.appendChild(line);
+  pts.forEach((p,i)=>svg.appendChild(el("circle",{cx:p[0],cy:p[1],r:i===pts.length-1?5:3.6,
+    class:"dot"+(i===pts.length-1?" dot-last":"")})));
+  const last=pts[pts.length-1];
+  const vt=el("text",{x:last[0],y:last[1]-15,class:"val-txt","text-anchor":"end"});
+  vt.textContent=CHART.values[CHART.values.length-1].toLocaleString("en-IN");
+  svg.appendChild(vt);
+  if(!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window){
+    const len=line.getTotalLength();
+    line.style.strokeDasharray=len; line.style.strokeDashoffset=len;
+    const io=new IntersectionObserver(es=>{
+      es.forEach(e=>{
+        if(e.isIntersecting){
+          line.style.transition="stroke-dashoffset 1.7s cubic-bezier(.4,0,.2,1)";
+          line.style.strokeDashoffset=0;
+          io.disconnect();
+        }
+      });
+    },{threshold:.25});
+    io.observe(svg);
+  }
+})();
+</script>
+</body>
+</html>
